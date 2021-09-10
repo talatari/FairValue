@@ -22,10 +22,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        calcButton.layer.cornerRadius = 10 // задаём радиус закругления рамки
-        calcButton.layer.borderWidth = 2.0 // задаём толщину рамки
-        calcButton.layer.borderColor = (UIColor(red: 242.0/255.0, green: 116.0/255.0, blue: 119.0/255.0, alpha: 1.0)).cgColor // задаём цвет рамки
-        calcButton.clipsToBounds = true    // включаем отображение рамки
+
     }
     
 
