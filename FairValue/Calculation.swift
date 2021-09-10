@@ -33,5 +33,8 @@ func calcFairValue() {
     UserDefaults.standard.set(false, forKey: "stateSwitchInformation")
     
     print(String(UserDefaults.standard.bool(forKey: "stateSwitchInformation")))
+     
     */
+    
+    // test git
 }
