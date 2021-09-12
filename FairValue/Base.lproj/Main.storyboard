@@ -17,12 +17,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="ETG-aB-1az" kind="relationship" relationship="rootViewController" id="7nS-RH-zVa"/>
+                        <segue destination="qGV-8D-yVS" kind="relationship" relationship="rootViewController" id="0Fz-bq-uYM"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JNG-z1-8uh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1431" y="-9"/>
+            <point key="canvasLocation" x="-1468" y="-9"/>
         </scene>
         <!--AgreementVC-->
         <scene sceneID="60o-0t-zjU">
@@ -44,7 +44,8 @@
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="qZy-uq-qam">
                                         <rect key="frame" x="265" y="0.0" width="51" height="31"/>
                                         <connections>
-                                            <segue destination="ETG-aB-1az" kind="presentation" id="vcJ-hS-OD2"/>
+                                            <action selector="changeStateAgreement:" destination="vOT-ZF-DLY" eventType="valueChanged" id="dow-Sq-okb"/>
+                                            <segue destination="ETG-aB-1az" kind="show" id="nak-UG-Abb"/>
                                         </connections>
                                     </switch>
                                 </subviews>
@@ -75,10 +76,13 @@
                     <navigationItem key="navigationItem" id="BF9-6x-fAd"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="switchAgreement" destination="qZy-uq-qam" id="3hu-5d-Frc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eOB-93-TFQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-468.11594202898556" y="-745.3125"/>
+            <point key="canvasLocation" x="-468" y="-840"/>
         </scene>
         <!--Method SelectionVC-->
         <scene sceneID="Tih-yl-OdV">
@@ -99,7 +103,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Дисконтирование денежных потоков"/>
                                 <connections>
-                                    <segue destination="qGV-8D-yVS" kind="show" id="cda-Mk-fpt"/>
+                                    <segue destination="qGV-8D-yVS" kind="show" id="fjo-0E-e0v"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bMT-uN-Zbb">
@@ -137,8 +141,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oiC-6D-cIW">
+                                <rect key="frame" x="284" y="100" width="110" height="39"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Настройки"/>
+                                <connections>
+                                    <segue destination="8cB-Qh-Vry" kind="show" id="jzh-Rx-PIt"/>
+                                </connections>
+                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="Sg2-CI-JhK">
-                                <rect key="frame" x="20" y="333" width="374" height="75"/>
+                                <rect key="frame" x="20" y="335" width="374" height="75"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Показатель Бета (число &gt; 0.3):" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q2B-Vu-7ri">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="23"/>
@@ -146,15 +158,15 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.4" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Px3-z5-P9S">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.4" borderStyle="roundedRect" placeholder="Только числа" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wLj-GS-3ES">
                                         <rect key="frame" x="0.0" y="41" width="374" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                     </textField>
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="yw7-Na-VJN">
-                                <rect key="frame" x="20" y="428" width="374" height="75"/>
+                                <rect key="frame" x="20" y="430" width="374" height="75"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Дивиденды (число &gt; 0):" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wFr-aX-2Ta">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="23"/>
@@ -162,28 +174,15 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wyi-KE-hsm">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" borderStyle="roundedRect" placeholder="Только числа" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wyi-KE-hsm">
                                         <rect key="frame" x="0.0" y="41" width="374" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                     </textField>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="197" translatesAutoresizingMaskIntoConstraints="NO" id="dGE-GU-wII">
-                                <rect key="frame" x="20" y="108" width="374" height="39"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oiC-6D-cIW">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="39"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                        <state key="normal" title="Настройки"/>
-                                        <connections>
-                                            <segue destination="8cB-Qh-Vry" kind="show" id="jzh-Rx-PIt"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="203" translatesAutoresizingMaskIntoConstraints="NO" id="DqZ-Dc-w8Z">
-                                <rect key="frame" x="20" y="187" width="374" height="31"/>
+                                <rect key="frame" x="20" y="189" width="374" height="31"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Акции" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NLq-MC-sxs">
                                         <rect key="frame" x="0.0" y="0.0" width="55.5" height="31"/>
@@ -197,11 +196,14 @@
                                             <segment title="🇺🇸"/>
                                             <segment title="🇷🇺"/>
                                         </segments>
+                                        <connections>
+                                            <action selector="changeCurrency:" destination="qGV-8D-yVS" eventType="valueChanged" id="cJk-zg-3Ls"/>
+                                        </connections>
                                     </segmentedControl>
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="eDk-EM-Zgo">
-                                <rect key="frame" x="20" y="664" width="374" height="74"/>
+                                <rect key="frame" x="20" y="666" width="374" height="74"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Справедливая стоимость актива:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M3A-DD-kJo">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="23"/>
@@ -218,7 +220,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="5qQ-LN-qij">
-                                <rect key="frame" x="20" y="238" width="374" height="75"/>
+                                <rect key="frame" x="20" y="240" width="374" height="75"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Тикер или наименование:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gwg-3u-QTk">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="23"/>
@@ -226,19 +228,19 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="AMD" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KUF-UA-4bI">
+                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="AMD" borderStyle="roundedRect" placeholder="Только текст" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KUF-UA-4bI">
                                         <rect key="frame" x="0.0" y="41" width="374" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                                     </textField>
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="playback" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OeL-pM-rTk">
-                                <rect key="frame" x="20" y="563" width="374" height="41"/>
+                                <rect key="frame" x="20" y="565" width="374" height="41"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <state key="normal" title="Рассчитать"/>
                                 <connections>
-                                    <action selector="calc:" destination="qGV-8D-yVS" eventType="touchUpInside" id="1Oa-e1-Tv8"/>
+                                    <action selector="calcFairValue:" destination="qGV-8D-yVS" eventType="touchUpInside" id="PKL-uC-MAk"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -249,16 +251,15 @@
                             <constraint firstItem="3Sw-ob-kH9" firstAttribute="trailing" secondItem="yw7-Na-VJN" secondAttribute="trailing" constant="20" id="4eg-C0-Y5S"/>
                             <constraint firstItem="DqZ-Dc-w8Z" firstAttribute="leading" secondItem="3Sw-ob-kH9" secondAttribute="leading" constant="20" id="5kM-jm-784"/>
                             <constraint firstItem="eDk-EM-Zgo" firstAttribute="leading" secondItem="3Sw-ob-kH9" secondAttribute="leading" constant="20" id="9Mr-Ux-u8M"/>
-                            <constraint firstItem="DqZ-Dc-w8Z" firstAttribute="top" secondItem="dGE-GU-wII" secondAttribute="bottom" constant="40" id="AYd-zR-yPP"/>
-                            <constraint firstItem="3Sw-ob-kH9" firstAttribute="trailing" secondItem="dGE-GU-wII" secondAttribute="trailing" constant="20" id="BEp-3j-C2N"/>
                             <constraint firstItem="3Sw-ob-kH9" firstAttribute="trailing" secondItem="OeL-pM-rTk" secondAttribute="trailing" constant="20" id="E4e-J0-nyk"/>
                             <constraint firstItem="3Sw-ob-kH9" firstAttribute="trailing" secondItem="5qQ-LN-qij" secondAttribute="trailing" constant="20" id="Eb0-3R-ZdY"/>
-                            <constraint firstItem="dGE-GU-wII" firstAttribute="leading" secondItem="3Sw-ob-kH9" secondAttribute="leading" constant="20" id="H4S-gI-ypB"/>
+                            <constraint firstAttribute="trailing" secondItem="oiC-6D-cIW" secondAttribute="trailing" constant="20" id="HgA-2a-LAA"/>
                             <constraint firstItem="yw7-Na-VJN" firstAttribute="top" secondItem="Sg2-CI-JhK" secondAttribute="bottom" constant="20" id="Kc8-Ox-oaz"/>
                             <constraint firstItem="3Sw-ob-kH9" firstAttribute="trailing" secondItem="eDk-EM-Zgo" secondAttribute="trailing" constant="20" id="MZh-br-czt"/>
                             <constraint firstItem="3Sw-ob-kH9" firstAttribute="trailing" secondItem="Sg2-CI-JhK" secondAttribute="trailing" constant="20" id="MdP-DS-PRp"/>
                             <constraint firstItem="OeL-pM-rTk" firstAttribute="top" secondItem="yw7-Na-VJN" secondAttribute="bottom" constant="60" id="SOG-Tw-etm"/>
-                            <constraint firstItem="dGE-GU-wII" firstAttribute="top" secondItem="3Sw-ob-kH9" secondAttribute="top" constant="20" id="aFl-0U-IcH"/>
+                            <constraint firstItem="DqZ-Dc-w8Z" firstAttribute="top" secondItem="oiC-6D-cIW" secondAttribute="bottom" constant="50" id="TxB-J2-FUE"/>
+                            <constraint firstItem="oiC-6D-cIW" firstAttribute="top" secondItem="saL-0T-yZf" secondAttribute="top" constant="100" id="byl-Wh-6jd"/>
                             <constraint firstItem="3Sw-ob-kH9" firstAttribute="trailing" secondItem="DqZ-Dc-w8Z" secondAttribute="trailing" constant="20" id="dMw-wR-v1W"/>
                             <constraint firstItem="Sg2-CI-JhK" firstAttribute="leading" secondItem="3Sw-ob-kH9" secondAttribute="leading" constant="20" id="dRL-YQ-WtW"/>
                             <constraint firstItem="Sg2-CI-JhK" firstAttribute="top" secondItem="5qQ-LN-qij" secondAttribute="bottom" constant="20" id="f8A-dS-3Kl"/>
@@ -266,15 +267,16 @@
                             <constraint firstItem="yw7-Na-VJN" firstAttribute="leading" secondItem="3Sw-ob-kH9" secondAttribute="leading" constant="20" id="k5Z-fZ-Oa2"/>
                             <constraint firstItem="5qQ-LN-qij" firstAttribute="leading" secondItem="3Sw-ob-kH9" secondAttribute="leading" constant="20" id="qmb-3X-Tgi"/>
                             <constraint firstItem="OeL-pM-rTk" firstAttribute="leading" secondItem="3Sw-ob-kH9" secondAttribute="leading" constant="20" id="xgV-EY-Hhb"/>
+                            <constraint firstItem="oiC-6D-cIW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="3Sw-ob-kH9" secondAttribute="leading" symbolic="YES" id="ybR-7O-hat"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="UGl-0N-HOA"/>
                     <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="betaParameter" destination="Px3-z5-P9S" id="qNb-sW-kkE"/>
-                        <outlet property="calcButton" destination="OeL-pM-rTk" id="ceI-yF-FGL"/>
-                        <outlet property="divParameter" destination="Wyi-KE-hsm" id="PxR-mb-rI3"/>
-                        <outlet property="ocenka" destination="xQv-II-yqR" id="oGq-Ua-6PM"/>
+                        <outlet property="betaParameter" destination="wLj-GS-3ES" id="3xr-4Z-t0K"/>
+                        <outlet property="currency" destination="XSp-Rg-ZZN" id="8co-gm-rYr"/>
+                        <outlet property="divParameter" destination="Wyi-KE-hsm" id="nsA-Jz-lwm"/>
+                        <outlet property="resultLabel" destination="xQv-II-yqR" id="3aT-zS-8vW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zy2-7B-cNa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -298,10 +300,10 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.5" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="25o-Ar-4rG">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Только числа" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="25o-Ar-4rG">
                                         <rect key="frame" x="0.0" y="41" width="374" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                     </textField>
                                 </subviews>
                             </stackView>
@@ -314,10 +316,10 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="5.5" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zGS-bG-fwM">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Только числа" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zGS-bG-fwM">
                                         <rect key="frame" x="0.0" y="41" width="374" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                     </textField>
                                 </subviews>
                             </stackView>
@@ -330,26 +332,10 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="2" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tqK-Tx-Qgw">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Только числа" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tqK-Tx-Qgw">
                                         <rect key="frame" x="0.0" y="41" width="374" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="cNj-uY-GjZ">
-                                <rect key="frame" x="20" y="523" width="374" height="75"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ограничения ввода:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uJd-fJ-v4v">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="23"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.3" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iUs-fl-rJ4">
-                                        <rect key="frame" x="0.0" y="41" width="374" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                     </textField>
                                 </subviews>
                             </stackView>
@@ -359,13 +345,10 @@
                         <constraints>
                             <constraint firstItem="VNH-Xi-I8o" firstAttribute="leading" secondItem="4p2-hb-tqo" secondAttribute="leading" constant="20" id="2Hx-0O-zFg"/>
                             <constraint firstItem="yIE-s8-XVb" firstAttribute="leading" secondItem="4p2-hb-tqo" secondAttribute="leading" constant="20" id="Lua-yg-c5a"/>
-                            <constraint firstItem="4p2-hb-tqo" firstAttribute="trailing" secondItem="cNj-uY-GjZ" secondAttribute="trailing" constant="20" id="PKg-bq-44p"/>
                             <constraint firstItem="4p2-hb-tqo" firstAttribute="trailing" secondItem="zo3-ix-7yR" secondAttribute="trailing" constant="20" id="R6s-ui-Qhc"/>
-                            <constraint firstItem="cNj-uY-GjZ" firstAttribute="leading" secondItem="4p2-hb-tqo" secondAttribute="leading" constant="20" id="WcB-4D-l75"/>
                             <constraint firstItem="4p2-hb-tqo" firstAttribute="trailing" secondItem="yIE-s8-XVb" secondAttribute="trailing" constant="20" id="Xzk-kk-UVJ"/>
                             <constraint firstItem="VNH-Xi-I8o" firstAttribute="top" secondItem="zo3-ix-7yR" secondAttribute="bottom" constant="40" id="Yhd-oI-dRt"/>
                             <constraint firstItem="4p2-hb-tqo" firstAttribute="trailing" secondItem="VNH-Xi-I8o" secondAttribute="trailing" constant="20" id="Yhp-hp-Mpz"/>
-                            <constraint firstItem="cNj-uY-GjZ" firstAttribute="top" secondItem="yIE-s8-XVb" secondAttribute="bottom" constant="40" id="Z6T-QP-11d"/>
                             <constraint firstItem="yIE-s8-XVb" firstAttribute="top" secondItem="VNH-Xi-I8o" secondAttribute="bottom" constant="40" id="cfn-jG-2YZ"/>
                             <constraint firstItem="zo3-ix-7yR" firstAttribute="top" secondItem="4p2-hb-tqo" secondAttribute="top" constant="90" id="fjc-9h-bSK"/>
                             <constraint firstItem="zo3-ix-7yR" firstAttribute="leading" secondItem="4p2-hb-tqo" secondAttribute="leading" constant="20" id="re0-wI-EDJ"/>
@@ -374,10 +357,9 @@
                     <navigationItem key="navigationItem" id="FPg-lW-P2B"/>
                     <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="baseField" destination="25o-Ar-4rG" id="yHd-M7-64U"/>
-                        <outlet property="constrInputField" destination="iUs-fl-rJ4" id="bG6-we-s62"/>
-                        <outlet property="inflField" destination="tqK-Tx-Qgw" id="mhM-9u-Zmy"/>
-                        <outlet property="riskPremField" destination="zGS-bG-fwM" id="11s-8b-8Oh"/>
+                        <outlet property="baseConstant" destination="25o-Ar-4rG" id="wxa-Pi-sCf"/>
+                        <outlet property="inflConstant" destination="tqK-Tx-Qgw" id="iP5-NE-toY"/>
+                        <outlet property="riskPremConstant" destination="zGS-bG-fwM" id="Sz7-DF-Yzc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xGp-Es-1hR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -386,7 +368,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="7nS-RH-zVa"/>
+        <segue reference="0Fz-bq-uYM"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">
