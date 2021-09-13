@@ -6,7 +6,9 @@
 //
 
 import Foundation
-
+/// Функция расчёта справедливой стоимости актива по методу Дисконтирования Денежных Средств
+/// Принимает два параметра и на основании заданых констант производит расчё по формуле
+/// Возвращая стоимость актива в той валюте, в которой был произведён расчёт
 func calcFairValue(betaParameter: Double, divParameter: Double) -> Double {
     
     //let beta_ru = Double(betaParameterValue!)! * riskPrem + base

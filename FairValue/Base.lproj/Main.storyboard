@@ -22,7 +22,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JNG-z1-8uh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1468" y="-9"/>
+            <point key="canvasLocation" x="-477" y="-9"/>
         </scene>
         <!--AgreementVC-->
         <scene sceneID="60o-0t-zjU">
@@ -82,7 +82,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eOB-93-TFQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-468" y="-840"/>
+            <point key="canvasLocation" x="480" y="-741"/>
         </scene>
         <!--Method SelectionVC-->
         <scene sceneID="Tih-yl-OdV">
@@ -131,7 +131,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p9J-hX-EUd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-467" y="-9"/>
+            <point key="canvasLocation" x="1422" y="-741"/>
         </scene>
         <!--Discounted Cash FlowVC-->
         <scene sceneID="5Wf-be-ZcW">
@@ -146,6 +146,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Настройки"/>
                                 <connections>
+                                    <action selector="closeKeyBoard:" destination="qGV-8D-yVS" eventType="touchUpInside" id="b8c-ZQ-Lk8"/>
                                     <segue destination="8cB-Qh-Vry" kind="show" id="jzh-Rx-PIt"/>
                                 </connections>
                             </button>
