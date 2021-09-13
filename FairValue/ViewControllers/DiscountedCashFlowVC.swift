@@ -32,10 +32,11 @@ class DiscountedCashFlowVC: UIViewController {
     
     @IBAction func calcFairValue(_ sender: UIButton) {
         
-        let betaParameter = Double(betaParameter.text!)
-        let divParameter = Double(divParameter.text!)
+        let betaParameter: Double? = Double(betaParameter.text!)
+        let divParameter: Double? = Double(divParameter.text!)
         
-        let result = checkParameters(betaParameter: betaParameter!, divParameter: divParameter!)
+        //let result = checkParameters(betaParameter: betaParameter ?? 0.31, divParameter: divParameter ?? 1)
+        let result = checkParameters(betaParameter: betaParameter, divParameter: divParameter)
         
         if result == "ok" {
             let resultFairValue = FairValue.calcFairValue(betaParameter: betaParameter!, divParameter: divParameter!)
@@ -48,9 +49,21 @@ class DiscountedCashFlowVC: UIViewController {
         
     }
     
-    func checkParameters(betaParameter: Double, divParameter: Double) -> String {
+    func checkParameters(betaParameter: Double?, divParameter: Double?) -> String {
         let constrInput = Settings.shared.currentSettings.constrInput
         var result = "ok"
+        
+        print(type(of: betaParameter!))
+        print(type(of: constrInput))
+        
+        switch betaParameter! {
+        case .. > constrInput:
+            result = "Бета меньше " + String(constrInput) + " "
+        case nil:
+            result = "Введите Бету "
+        }
+        
+        /*
         
         // проверяем параметр Бета, чтобы он был выше ограничение 0.3 по формуле
         // чтобы не поймать ошибку деление на 0
@@ -96,6 +109,8 @@ class DiscountedCashFlowVC: UIViewController {
             }
         }
         
+        */
+ 
         return result
     }
 }
