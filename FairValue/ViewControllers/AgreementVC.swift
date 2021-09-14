@@ -26,8 +26,6 @@ class AgreementVC: UIViewController {
         switchAgreement.isOn = Settings.shared.currentSettings.stateSwitchAgreement
     }
     
-
-    
     // sender'ом является объект типа UISwitch - берём его состояние
     // и передаем в наше хранилище
     @IBAction func changeStateAgreement(_ sender: UISwitch) {
@@ -35,7 +33,10 @@ class AgreementVC: UIViewController {
         print("sender.isOn: " + String(sender.isOn))
         print("-----------------------------\n")
         Settings.shared.currentSettings.stateSwitchAgreement = sender.isOn
-        
+        // скрываем модальную View - AgreementVC
+        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
     }
     
 }
+

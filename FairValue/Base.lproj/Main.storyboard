@@ -17,17 +17,17 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="qGV-8D-yVS" kind="relationship" relationship="rootViewController" id="0Fz-bq-uYM"/>
+                        <segue destination="ETG-aB-1az" kind="relationship" relationship="rootViewController" id="n9I-Aw-107"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JNG-z1-8uh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-477" y="-9"/>
+            <point key="canvasLocation" x="-1446" y="-9"/>
         </scene>
         <!--AgreementVC-->
         <scene sceneID="60o-0t-zjU">
             <objects>
-                <viewController id="vOT-ZF-DLY" customClass="AgreementVC" customModule="FairValue" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AgreementVC" id="vOT-ZF-DLY" customClass="AgreementVC" customModule="FairValue" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Jxd-4K-W1k">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -45,7 +45,6 @@
                                         <rect key="frame" x="265" y="0.0" width="51" height="31"/>
                                         <connections>
                                             <action selector="changeStateAgreement:" destination="vOT-ZF-DLY" eventType="valueChanged" id="dow-Sq-okb"/>
-                                            <segue destination="ETG-aB-1az" kind="show" id="nak-UG-Abb"/>
                                         </connections>
                                     </switch>
                                 </subviews>
@@ -82,7 +81,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eOB-93-TFQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="480" y="-741"/>
+            <point key="canvasLocation" x="-471" y="-749"/>
         </scene>
         <!--Method SelectionVC-->
         <scene sceneID="Tih-yl-OdV">
@@ -131,7 +130,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p9J-hX-EUd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1422" y="-741"/>
+            <point key="canvasLocation" x="-470" y="-9"/>
         </scene>
         <!--Discounted Cash FlowVC-->
         <scene sceneID="5Wf-be-ZcW">
@@ -368,9 +367,6 @@
             <point key="canvasLocation" x="1422" y="-9"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="0Fz-bq-uYM"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
