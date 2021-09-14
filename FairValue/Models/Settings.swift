@@ -53,7 +53,6 @@ class Settings {
                 if let data = try? PropertyListEncoder().encode(defaultSettings) {
                     UserDefaults.standard.setValue(data, forKey: KeysUserDefaults.SettingsApp)
                 }
-                print("Settings -> currentSettings -> defaultSettings")
                 return defaultSettings
             }
         }
@@ -61,9 +60,6 @@ class Settings {
         set {
             if let data = try? PropertyListEncoder().encode(newValue) {
                 UserDefaults.standard.setValue(data, forKey: KeysUserDefaults.SettingsApp)
-                print("Settings -> currentSettings -> SET")
-                print(Settings.shared.currentSettings.stateSwitchAgreement)
-                print("-----------------------------\n")
             }
             
         }

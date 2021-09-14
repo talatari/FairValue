@@ -57,7 +57,6 @@ class DiscountedCashFlowVC: UIViewController {
         let betaParameter: Double? = Double(cleanedBeta)
         let divParameter: Double? = Double(cleanedDiv)
         
-        //let result = checkParameters(betaParameter: betaParameter ?? 0.31, divParameter: divParameter ?? 1)
         let result = checkParameters(betaParameter: betaParameter, divParameter: divParameter)
         
         if result == "ok" {

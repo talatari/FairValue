@@ -11,13 +11,6 @@ import Foundation
 /// Возвращая стоимость актива в той валюте, в которой был произведён расчёт
 func calcFairValue(betaParameter: Double, divParameter: Double) -> Double {
     
-    //let beta_ru = Double(betaParameterValue!)! * riskPrem + base
-    //let ocenka_ru = (Double(divParameterValue!)! / (beta_ru - infl)) * 100
-    
-    print("betaParameter = " + String(betaParameter))
-    print("divParameter = " + String(divParameter))
-    print("---")
-    
     if Settings.shared.currentSettings.stateTypeCurrency {
         let base = Settings.shared.currentSettings.baseRUB
         let riskPrem = Settings.shared.currentSettings.riskPremRUB
