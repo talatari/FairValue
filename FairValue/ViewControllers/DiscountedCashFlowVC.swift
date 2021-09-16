@@ -7,16 +7,33 @@
 
 import UIKit
 
+class DiscountedCashFlowVC: UIViewController, UITextFieldDelegate {
 
-class DiscountedCashFlowVC: UIViewController {
-
+    private enum Currency: Int {
+        case usd
+        case rub
+    }
+    
+    // MARK: Outlets
+    
     @IBOutlet weak var betaParameter: UITextField!
     @IBOutlet weak var divParameter: UITextField!
     @IBOutlet weak var resultLabel: UILabel!
     @IBOutlet weak var currency: UISegmentedControl!
     
+    // MARK: VC Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        betaParameter.delegate = self
+        divParameter.delegate = self
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        view.endEditing(true)
     }
 
     // переопределение метода позволяющего скрывать клавиатуру при нажатии
@@ -28,19 +45,22 @@ class DiscountedCashFlowVC: UIViewController {
         super.touchesBegan(touches, with:event)
     }
     
+    // MARK: User actions
+    
     // записываем в UserDefaults состояние переключателя валют
-    @IBAction func changeCurrency(_ sender: Any) {
-        if currency.selectedSegmentIndex == 0 {
-            Settings.shared.currentSettings.stateTypeCurrency = false
+    @IBAction func changeCurrency(_ sender: UISegmentedControl) {
+        
+        guard let currency = Currency(rawValue: sender.selectedSegmentIndex) else {
+            assertionFailure("Unsupported segment index!!!")
+            return
         }
-        if currency.selectedSegmentIndex == 1 {
+        
+        switch currency {
+        case .usd:
+            Settings.shared.currentSettings.stateTypeCurrency = false
+        case .rub:
             Settings.shared.currentSettings.stateTypeCurrency = true
         }
-    }
-    
-    // скрываем клавиатуру при переходе на экран настроек
-    @IBAction func closeKeyBoard(_ sender: Any) {
-        view.endEditing(true)
     }
     
     // функция подготовки и проверки параметров перед расчётом
@@ -58,7 +78,6 @@ class DiscountedCashFlowVC: UIViewController {
         let cleanedDiv = div.components(separatedBy: allowedValues.inverted).joined()
         
         let betaParameter: Double? = Double(cleanedBeta)
-        print(betaParameter!)
         let divParameter: Double? = Double(cleanedDiv)
         
         let result = checkParameters(betaParameter: betaParameter, divParameter: divParameter)
@@ -74,14 +93,14 @@ class DiscountedCashFlowVC: UIViewController {
         
     }
     
-    /*
      
     // TODO: понять где вызывать данную функцию. просто так не работает.
     // по идее, нужно подписаться на события данного объекта.
     // суть функции - проверяем количество введённых точек и запятых
     // и припятствовать вводу больше одного разделителя
     
-    func textField(betaParameter: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
 
         //let dotsCount = betaParameter.text!.componentsSeparatedByString(".").count - 1
         let dotsCount = betaParameter.text!.components(separatedBy: ".").count - 1
@@ -95,13 +114,12 @@ class DiscountedCashFlowVC: UIViewController {
         return true
     }
      
-    */
+    
     
     // функция проверки параметров перед расчётом
     // возвращает текст уведомления, если параметры не соответствуют ожидаемым значениям
     func checkParameters(betaParameter: Double?, divParameter: Double?) -> String {
         let constrInput = Settings.shared.currentSettings.constrInput
-        print(constrInput)
         var result = "ok"
         
         // проверяем параметр Бета, чтобы он не был пустым

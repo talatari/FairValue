@@ -29,14 +29,14 @@ func calcFairValue(betaParameter: Double, divParameter: Double) -> Double {
         testD = formattedNumber as Decimal
         print("Decimal Modified: " + "\(testD)")
     }
-    //
+    // ------------------------------------ //
+    
     
     // TODO: вынести формулу в отдельную функцию
     if Settings.shared.currentSettings.stateTypeCurrency {
         let base = Settings.shared.currentSettings.baseRUB
         let riskPrem = Settings.shared.currentSettings.riskPremRUB
         let infl = Settings.shared.currentSettings.inflRUB
-        
         
         let ocenka = (Double(divParameter) / ((Double(betaParameter) * riskPrem + base - infl))) * 100
         return round(ocenka * 100) / 100
@@ -50,5 +50,8 @@ func calcFairValue(betaParameter: Double, divParameter: Double) -> Double {
     }
     
 }
-
-
+/*
+func calculationDFC() ->  {
+    return (Double(divParameter) / ((Double(betaParameter) * riskPrem + base - infl))) * 100
+}
+*/
