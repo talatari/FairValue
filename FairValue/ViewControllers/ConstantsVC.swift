@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class ConstantsVC: UIViewController {
 
     @IBOutlet weak var baseConstant: UITextField!
@@ -15,6 +16,9 @@ class ConstantsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // TODO: написать функцию, которая будет наполнять нужными значениями 
+        
         // в зависимости от того в какое положение выставлен переключатель валют
         // считываем значения констант из UserDefaults
         if Settings.shared.currentSettings.stateTypeCurrency {
@@ -67,7 +71,7 @@ class ConstantsVC: UIViewController {
                 Settings.shared.currentSettings.baseUSA = Double(baseConstant.text!) ?? Double(baseConstantUSA)!
             }
             if riskPremConstant.text! != riskPremConstantUSA {
-                Settings.shared.currentSettings.riskPremUSA = Double(riskPremConstant.text!) ?? Double(riskPremConstantUSA)!
+                Settings.shared.currentSettings.riskPremUSA = Double(baseConstant.text!) ?? Double(riskPremConstantUSA)!
             }
             if inflConstant.text! != inflConstantUSA {
                 Settings.shared.currentSettings.inflUSA = Double(inflConstant.text!) ?? Double(inflConstantUSA)!

@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class DiscountedCashFlowVC: UIViewController {
 
     @IBOutlet weak var betaParameter: UITextField!
@@ -18,7 +19,7 @@ class DiscountedCashFlowVC: UIViewController {
         super.viewDidLoad()
     }
 
-    // переопределение метода позволяющего сворачивать клавиатуру при нажатии
+    // переопределение метода позволяющего скрывать клавиатуру при нажатии
     // по любому элементу на ViewController кроме UITextField
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let _ = touches.first {
@@ -37,13 +38,15 @@ class DiscountedCashFlowVC: UIViewController {
         }
     }
     
-    // закрываем клавиатуру при переходе на экран настроек
+    // скрываем клавиатуру при переходе на экран настроек
     @IBAction func closeKeyBoard(_ sender: Any) {
         view.endEditing(true)
     }
     
     // функция подготовки и проверки параметров перед расчётом
     @IBAction func calcFairValue(_ sender: UIButton) {
+        // скрываем клавиатуру, если нажата кнопка Рассчитать
+        view.endEditing(true)
         
         // заменяем запятую на точку, так как "0,1" воспринимается как "1.0", а не "0.1"
         let beta = betaParameter.text!.replacingOccurrences(of: ",", with: ".", options: .literal, range: nil)
@@ -55,6 +58,7 @@ class DiscountedCashFlowVC: UIViewController {
         let cleanedDiv = div.components(separatedBy: allowedValues.inverted).joined()
         
         let betaParameter: Double? = Double(cleanedBeta)
+        print(betaParameter!)
         let divParameter: Double? = Double(cleanedDiv)
         
         let result = checkParameters(betaParameter: betaParameter, divParameter: divParameter)
@@ -97,6 +101,7 @@ class DiscountedCashFlowVC: UIViewController {
     // возвращает текст уведомления, если параметры не соответствуют ожидаемым значениям
     func checkParameters(betaParameter: Double?, divParameter: Double?) -> String {
         let constrInput = Settings.shared.currentSettings.constrInput
+        print(constrInput)
         var result = "ok"
         
         // проверяем параметр Бета, чтобы он не был пустым

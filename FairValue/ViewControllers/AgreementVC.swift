@@ -23,7 +23,7 @@ class AgreementVC: UIViewController {
         switchAgreement.isOn = Settings.shared.currentSettings.stateSwitchAgreement
     }
     
-    // sender'ом является объект типа UISwitch - берём его состояние
+    // sender'ом является объект типа UISwitch - берём состояние его положения
     // и передаем в наше хранилище
     @IBAction func changeStateAgreement(_ sender: UISwitch) {
         Settings.shared.currentSettings.stateSwitchAgreement = sender.isOn
