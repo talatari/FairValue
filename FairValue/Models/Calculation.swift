@@ -11,47 +11,25 @@ import Foundation
 /// Возвращая стоимость актива в той валюте, в которой был произведён расчёт
 func calcFairValue(betaParameter: Double, divParameter: Double) -> Double {
     
-    
-    // конвертация Decimal в String и обратно //
-    var testD: Decimal = 1.567
-    print("Decimal: " + "\(testD)")
-
-    var decimalString = "\(testD)"
-    print("String: " + decimalString)
-    
-    decimalString += "01"
-    print("String Modified: " + decimalString)
-    
-    let formatter = NumberFormatter()
-    formatter.generatesDecimalNumbers = true
-    formatter.numberStyle = NumberFormatter.Style.decimal
-    if let formattedNumber = formatter.number(from: decimalString) as? NSDecimalNumber  {
-        testD = formattedNumber as Decimal
-        print("Decimal Modified: " + "\(testD)")
-    }
-    // ------------------------------------ //
-    
-    
     // TODO: вынести формулу в отдельную функцию
     if Settings.shared.currentSettings.stateTypeCurrency {
         let base = Settings.shared.currentSettings.baseRUB
         let riskPrem = Settings.shared.currentSettings.riskPremRUB
         let infl = Settings.shared.currentSettings.inflRUB
         
-        let ocenka = (Double(divParameter) / ((Double(betaParameter) * riskPrem + base - infl))) * 100
-        return round(ocenka * 100) / 100
+        return calculationDFC(betaParameter: betaParameter, divParameter: divParameter, base: base, riskPrem: riskPrem, infl: infl)
     } else {
         let base = Settings.shared.currentSettings.baseUSA
         let riskPrem = Settings.shared.currentSettings.riskPremUSA
         let infl = Settings.shared.currentSettings.inflUSA
         
-        let ocenka = (Double(divParameter) / ((Double(betaParameter) * riskPrem + base - infl))) * 100
-        return round(ocenka * 100) / 100
+        return calculationDFC(betaParameter: betaParameter, divParameter: divParameter, base: base, riskPrem: riskPrem, infl: infl)
     }
     
 }
-/*
-func calculationDFC() ->  {
-    return (Double(divParameter) / ((Double(betaParameter) * riskPrem + base - infl))) * 100
+
+func calculationDFC(betaParameter: Double, divParameter: Double, base: Double, riskPrem: Double, infl: Double) -> Double {
+    let ocenka = (Double(divParameter) / ((Double(betaParameter) * riskPrem + base - infl))) * 100
+    return round(ocenka * 100) / 100
 }
-*/
+
