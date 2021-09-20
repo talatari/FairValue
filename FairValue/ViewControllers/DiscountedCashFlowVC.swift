@@ -28,11 +28,14 @@ class DiscountedCashFlowVC: UIViewController, UITextFieldDelegate {
         
         betaParameter.delegate = self
         divParameter.delegate = self
+        // производим расчёт при создании Вида
+        calculation()
     }
+    
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
+        // скрываем клавиатуру при уходе с Вида с расчётами
         view.endEditing(true)
     }
 
@@ -61,24 +64,41 @@ class DiscountedCashFlowVC: UIViewController, UITextFieldDelegate {
         case .rub:
             Settings.shared.currentSettings.stateTypeCurrency = true
         }
+        // пересчитываем значение при переключении типа валюты
+        calculation()
     }
     
-    // функция подготовки и проверки параметров перед расчётом
-    @IBAction func calcFairValue(_ sender: UIButton) {
-        // скрываем клавиатуру, если нажата кнопка Рассчитать
-        view.endEditing(true)
+    // TODO: понять где вызывать данную функцию. просто так не работает.
+    // по идее, нужно подписаться на события данного объекта.
+    // суть функции - проверяем количество введённых точек и запятых
+    // и припятствовать вводу больше одного разделителя
+    
+    func textField(_ betaParameter: UITextField,
+                   shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
+        let dotsCount = betaParameter.text!.components(separatedBy: ".").count - 1
+        if dotsCount > 0 && (string == "." || string == ",") {
+            return false
+        }
+        if string == "," {
+            betaParameter.text! += "."
+            return false
+        }
+        return true
+    }
+    
+
+    
+    // запускаем пересчёт при любых изменениях в текстовых полях ввода параметров
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        calculation()
+    }
+    
+    // функция расчёта справедливой стоимости
+    private func calculation() {
         
-        // заменяем запятую на точку, так как "0,1" воспринимается как "1.0", а не "0.1"
-        let beta = betaParameter.text!.replacingOccurrences(of: ",", with: ".", options: .literal, range: nil)
-        let div = divParameter.text!.replacingOccurrences(of: ",", with: ".", options: .literal, range: nil)
-        // задаём значения которые могут содержаться в наших полях ввода
-        let allowedValues = CharacterSet(charactersIn: ".0123456789")
-        // пересобираем переменные по нашему набору значений
-        let cleanedBeta = beta.components(separatedBy: allowedValues.inverted).joined()
-        let cleanedDiv = div.components(separatedBy: allowedValues.inverted).joined()
-        
-        let betaParameter: Double? = Double(cleanedBeta)
-        let divParameter: Double? = Double(cleanedDiv)
+        let betaParameter: Double? = Double(betaParameter.text!)
+        let divParameter: Double? = Double(divParameter.text!)
         
         let result = checkParameters(betaParameter: betaParameter, divParameter: divParameter)
         
@@ -90,31 +110,7 @@ class DiscountedCashFlowVC: UIViewController, UITextFieldDelegate {
             resultLabel.textColor = UIColor.red
             resultLabel.text = String(result)
         }
-        
     }
-    
-     
-    // TODO: понять где вызывать данную функцию. просто так не работает.
-    // по идее, нужно подписаться на события данного объекта.
-    // суть функции - проверяем количество введённых точек и запятых
-    // и припятствовать вводу больше одного разделителя
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
-
-        //let dotsCount = betaParameter.text!.componentsSeparatedByString(".").count - 1
-        let dotsCount = betaParameter.text!.components(separatedBy: ".").count - 1
-        if dotsCount > 0 && (string == "." || string == ",") {
-            return false
-        }
-        if string == "," {
-            betaParameter.text! += "."
-            return false
-        }
-        return true
-    }
-     
-    
     
     // функция проверки параметров перед расчётом
     // возвращает текст уведомления, если параметры не соответствуют ожидаемым значениям

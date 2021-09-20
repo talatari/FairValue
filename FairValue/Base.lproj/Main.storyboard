@@ -11,7 +11,7 @@
         <!--Navigation Controller-->
         <scene sceneID="4lR-Ww-GU1">
             <objects>
-                <navigationController id="cNJ-rt-wcZ" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cNJ-rt-wcZ" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Zxw-PQ-2xZ">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -169,7 +169,7 @@
             </objects>
             <point key="canvasLocation" x="-471.01449275362324" y="789.50892857142856"/>
         </scene>
-        <!--Method SelectionVC-->
+        <!--Меню-->
         <scene sceneID="Tih-yl-OdV">
             <objects>
                 <viewController id="ETG-aB-1az" customClass="MethodSelectionVC" customModule="FairValue" customModuleProvider="target" sceneMemberID="viewController">
@@ -221,8 +221,7 @@
                             <constraint firstItem="eOp-9r-Pgd" firstAttribute="top" secondItem="IG1-QG-zFv" secondAttribute="top" constant="120" id="tje-Dk-963"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="sxk-VL-S1Q"/>
-                    <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <navigationItem key="navigationItem" title="Меню" id="sxk-VL-S1Q"/>
                     <connections>
                         <segue destination="vOT-ZF-DLY" kind="presentation" identifier="PresentAgreementSegue" id="vw2-rs-IAf"/>
                     </connections>
@@ -231,7 +230,7 @@
             </objects>
             <point key="canvasLocation" x="-470" y="-9"/>
         </scene>
-        <!--Discounted Cash FlowVC-->
+        <!--Расчёт-->
         <scene sceneID="5Wf-be-ZcW">
             <objects>
                 <viewController id="qGV-8D-yVS" customClass="DiscountedCashFlowVC" customModule="FairValue" customModuleProvider="target" sceneMemberID="viewController">
@@ -239,16 +238,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oiC-6D-cIW">
-                                <rect key="frame" x="284" y="90" width="110" height="39"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="Настройки"/>
-                                <connections>
-                                    <segue destination="8cB-Qh-Vry" kind="show" id="jzh-Rx-PIt"/>
-                                </connections>
-                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="Sg2-CI-JhK">
-                                <rect key="frame" x="20" y="295" width="374" height="75"/>
+                                <rect key="frame" x="20" y="239" width="374" height="75"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Показатель Бета (число &gt; 0.3):" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q2B-Vu-7ri">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="23"/>
@@ -256,7 +247,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.4" borderStyle="roundedRect" placeholder="Только числа" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wLj-GS-3ES">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" borderStyle="roundedRect" placeholder="Только числа" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wLj-GS-3ES">
                                         <rect key="frame" x="0.0" y="41" width="374" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
@@ -264,7 +255,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="yw7-Na-VJN">
-                                <rect key="frame" x="20" y="380" width="374" height="75"/>
+                                <rect key="frame" x="20" y="324" width="374" height="75"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Дивиденды (число &gt; 0):" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wFr-aX-2Ta">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="23"/>
@@ -280,7 +271,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="203" translatesAutoresizingMaskIntoConstraints="NO" id="DqZ-Dc-w8Z">
-                                <rect key="frame" x="20" y="169" width="374" height="31"/>
+                                <rect key="frame" x="20" y="188" width="374" height="31"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Акции" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NLq-MC-sxs">
                                         <rect key="frame" x="0.0" y="0.0" width="55.5" height="31"/>
@@ -301,7 +292,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="eDk-EM-Zgo">
-                                <rect key="frame" x="20" y="556" width="374" height="74"/>
+                                <rect key="frame" x="20" y="108" width="374" height="74"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Справедливая стоимость актива:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M3A-DD-kJo">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="23"/>
@@ -317,59 +308,31 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="5qQ-LN-qij">
-                                <rect key="frame" x="20" y="210" width="374" height="75"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Тикер или наименование:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gwg-3u-QTk">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="23"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="AMD" borderStyle="roundedRect" placeholder="Только текст" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KUF-UA-4bI">
-                                        <rect key="frame" x="0.0" y="41" width="374" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
-                                    </textField>
-                                </subviews>
-                            </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="playback" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OeL-pM-rTk">
-                                <rect key="frame" x="20" y="485" width="374" height="41"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                <state key="normal" title="Рассчитать"/>
-                                <connections>
-                                    <action selector="calcFairValue:" destination="qGV-8D-yVS" eventType="touchUpInside" id="PKL-uC-MAk"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3Sw-ob-kH9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="5qQ-LN-qij" firstAttribute="top" secondItem="DqZ-Dc-w8Z" secondAttribute="bottom" constant="10" id="3uZ-b9-JjP"/>
                             <constraint firstItem="3Sw-ob-kH9" firstAttribute="trailing" secondItem="yw7-Na-VJN" secondAttribute="trailing" constant="20" id="4eg-C0-Y5S"/>
                             <constraint firstItem="DqZ-Dc-w8Z" firstAttribute="leading" secondItem="3Sw-ob-kH9" secondAttribute="leading" constant="20" id="5kM-jm-784"/>
                             <constraint firstItem="eDk-EM-Zgo" firstAttribute="leading" secondItem="3Sw-ob-kH9" secondAttribute="leading" constant="20" id="9Mr-Ux-u8M"/>
-                            <constraint firstItem="3Sw-ob-kH9" firstAttribute="trailing" secondItem="OeL-pM-rTk" secondAttribute="trailing" constant="20" id="E4e-J0-nyk"/>
-                            <constraint firstItem="3Sw-ob-kH9" firstAttribute="trailing" secondItem="5qQ-LN-qij" secondAttribute="trailing" constant="20" id="Eb0-3R-ZdY"/>
-                            <constraint firstAttribute="trailing" secondItem="oiC-6D-cIW" secondAttribute="trailing" constant="20" id="HgA-2a-LAA"/>
+                            <constraint firstItem="DqZ-Dc-w8Z" firstAttribute="top" secondItem="3Sw-ob-kH9" secondAttribute="top" constant="100" id="IWN-dW-Msw"/>
                             <constraint firstItem="yw7-Na-VJN" firstAttribute="top" secondItem="Sg2-CI-JhK" secondAttribute="bottom" constant="10" id="Kc8-Ox-oaz"/>
                             <constraint firstItem="3Sw-ob-kH9" firstAttribute="trailing" secondItem="eDk-EM-Zgo" secondAttribute="trailing" constant="20" id="MZh-br-czt"/>
                             <constraint firstItem="3Sw-ob-kH9" firstAttribute="trailing" secondItem="Sg2-CI-JhK" secondAttribute="trailing" constant="20" id="MdP-DS-PRp"/>
-                            <constraint firstItem="OeL-pM-rTk" firstAttribute="top" secondItem="yw7-Na-VJN" secondAttribute="bottom" constant="30" id="SOG-Tw-etm"/>
-                            <constraint firstItem="DqZ-Dc-w8Z" firstAttribute="top" secondItem="oiC-6D-cIW" secondAttribute="bottom" constant="40" id="TxB-J2-FUE"/>
-                            <constraint firstItem="oiC-6D-cIW" firstAttribute="top" secondItem="saL-0T-yZf" secondAttribute="top" constant="90" id="byl-Wh-6jd"/>
+                            <constraint firstItem="Sg2-CI-JhK" firstAttribute="top" secondItem="DqZ-Dc-w8Z" secondAttribute="bottom" constant="20" id="SlN-vs-aVM"/>
+                            <constraint firstItem="eDk-EM-Zgo" firstAttribute="top" secondItem="3Sw-ob-kH9" secondAttribute="top" constant="20" id="Teq-G4-UER"/>
                             <constraint firstItem="3Sw-ob-kH9" firstAttribute="trailing" secondItem="DqZ-Dc-w8Z" secondAttribute="trailing" constant="20" id="dMw-wR-v1W"/>
                             <constraint firstItem="Sg2-CI-JhK" firstAttribute="leading" secondItem="3Sw-ob-kH9" secondAttribute="leading" constant="20" id="dRL-YQ-WtW"/>
-                            <constraint firstItem="Sg2-CI-JhK" firstAttribute="top" secondItem="5qQ-LN-qij" secondAttribute="bottom" constant="10" id="f8A-dS-3Kl"/>
-                            <constraint firstItem="eDk-EM-Zgo" firstAttribute="top" secondItem="OeL-pM-rTk" secondAttribute="bottom" constant="30" id="iR1-Lt-6zl"/>
                             <constraint firstItem="yw7-Na-VJN" firstAttribute="leading" secondItem="3Sw-ob-kH9" secondAttribute="leading" constant="20" id="k5Z-fZ-Oa2"/>
-                            <constraint firstItem="5qQ-LN-qij" firstAttribute="leading" secondItem="3Sw-ob-kH9" secondAttribute="leading" constant="20" id="qmb-3X-Tgi"/>
-                            <constraint firstItem="OeL-pM-rTk" firstAttribute="leading" secondItem="3Sw-ob-kH9" secondAttribute="leading" constant="20" id="xgV-EY-Hhb"/>
-                            <constraint firstItem="oiC-6D-cIW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="3Sw-ob-kH9" secondAttribute="leading" symbolic="YES" id="ybR-7O-hat"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="UGl-0N-HOA"/>
-                    <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <navigationItem key="navigationItem" title="Расчёт" id="UGl-0N-HOA">
+                        <barButtonItem key="rightBarButtonItem" title="Настройки" id="sjS-D7-bpg">
+                            <connections>
+                                <segue destination="8cB-Qh-Vry" kind="show" id="EpD-YI-L16"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="betaParameter" destination="wLj-GS-3ES" id="3xr-4Z-t0K"/>
                         <outlet property="currency" destination="XSp-Rg-ZZN" id="8co-gm-rYr"/>
@@ -453,7 +416,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="FPg-lW-P2B"/>
-                    <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="baseConstant" destination="25o-Ar-4rG" id="wxa-Pi-sCf"/>
                         <outlet property="inflConstant" destination="tqK-Tx-Qgw" id="iP5-NE-toY"/>

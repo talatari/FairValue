@@ -16,23 +16,18 @@ class MethodSelectionVC: UIViewController {
         
         displayAgreementIfNeeded()
     }
-
 }
 
 // MARK: Private methods
 
 private extension MethodSelectionVC {
     func displayAgreementIfNeeded() {
+        
         guard !Settings.shared.currentSettings.stateSwitchAgreement else {
             return
         }
         
         performSegue(withIdentifier: "PresentAgreementSegue", sender: self)
-//
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let secondViewController = storyboard.instantiateViewController(withIdentifier: "AgreementVC") as UIViewController
-//
-//        present(secondViewController, animated: true, completion: nil)
         
     }
 }

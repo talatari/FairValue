@@ -11,7 +11,7 @@ import Foundation
 /// Возвращая стоимость актива в той валюте, в которой был произведён расчёт
 func calcFairValue(betaParameter: Double, divParameter: Double) -> Double {
     
-    
+    /*
     // конвертация Decimal в String и обратно //
     var testD: Decimal = 1.567
     print("Decimal: " + "\(testD)")
@@ -30,9 +30,8 @@ func calcFairValue(betaParameter: Double, divParameter: Double) -> Double {
         print("Decimal Modified: " + "\(testD)")
     }
     // ------------------------------------ //
+    */
     
-    
-    // TODO: вынести формулу в отдельную функцию
     if Settings.shared.currentSettings.stateTypeCurrency {
         let base = Settings.shared.currentSettings.baseRUB
         let riskPrem = Settings.shared.currentSettings.riskPremRUB
@@ -50,8 +49,3 @@ func calcFairValue(betaParameter: Double, divParameter: Double) -> Double {
     }
     
 }
-/*
-func calculationDFC() ->  {
-    return (Double(divParameter) / ((Double(betaParameter) * riskPrem + base - infl))) * 100
-}
-*/
