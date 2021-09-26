@@ -6,45 +6,35 @@
 //
 
 import XCTest
+@testable import FairValue
 
 class FairValueTests: XCTestCase {
+    
+    var calculation: calculation!
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        calculation = calculationImp()
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        calculation = nil
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testCalculationFairValue() throws {
         
-        XCTAssert(2==2)
-    }
+        let betaParameter = 100.0
+        let divParameter = 15.0
+        var ValidatedResult: Double
+        
+        Settings.shared.currentSettings.stateTypeCurrency = true
+        ValidatedResult = calculation.calcFairValue(betaParameter: betaParameter, divParameter: divParameter)
+        print(ValidatedResult)
+        
+        Settings.shared.currentSettings.stateTypeCurrency = false
+        ValidatedResult = calculation.calcFairValue(betaParameter: betaParameter, divParameter: divParameter)
+        print(ValidatedResult)
     
-    func testExample2() throws {
         
-        // Arrange
-        
-        let num: Int = 2
-        
-        // Act
-        
-        let result = num * 3
-        
-        // Assert
-        
-        XCTAssert(result == 4)
-        
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        measure {
-            // Put the code you want to measure the time of here.
-        }
     }
 
 }

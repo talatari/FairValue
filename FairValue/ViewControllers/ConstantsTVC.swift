@@ -1,23 +1,30 @@
 //
-//  ConstantsVC.swift
+//  ConstantsTVC.swift
 //  FairValue
 //
-//  Created by Tsaplin-SO on 10.09.2021.
+//  Created by Tsaplin-SO on 20.09.2021.
 //
 
 import UIKit
 
+class ConstantsTVC: UITableViewController {
 
-class ConstantsVC: UIViewController {
-
+    // MARK: Outlets
+    
+    //@IBOutlet weak var baseConstant: UITextField!
+    //@IBOutlet weak var riskPremConstant: UITextField!
+    //@IBOutlet weak var inflConstant: UITextField!
+    
     @IBOutlet weak var baseConstant: UITextField!
     @IBOutlet weak var riskPremConstant: UITextField!
     @IBOutlet weak var inflConstant: UITextField!
     
+    // MARK: VC Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // TODO: написать функцию, которая будет наполнять нужными значениями 
+        // TODO: написать функцию, которая будет наполнять нужными значениями
         
         // в зависимости от того в какое положение выставлен переключатель валют
         // считываем значения констант из UserDefaults
@@ -36,6 +43,8 @@ class ConstantsVC: UIViewController {
         super.viewWillDisappear(animated)
         checkConstants()
     }
+    
+    
     
     // переопределение метода позволяющего сворачивать клавиатуру при нажатии
     // по любому элементу на ViewController кроме UITextField
@@ -78,7 +87,5 @@ class ConstantsVC: UIViewController {
             }
         }
     }
-    
-     
     
 }

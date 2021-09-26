@@ -28,15 +28,19 @@ class DiscountedCashFlowVC: UIViewController, UITextFieldDelegate {
         
         betaParameter.delegate = self
         divParameter.delegate = self
+        
+        checkTypeCurrency()
+        
         // производим расчёт при создании Вида
         calculation()
     }
-    
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         // скрываем клавиатуру при уходе с Вида с расчётами
         view.endEditing(true)
+        
+        checkTypeCurrency()
     }
 
     // переопределение метода позволяющего скрывать клавиатуру при нажатии
@@ -68,10 +72,17 @@ class DiscountedCashFlowVC: UIViewController, UITextFieldDelegate {
         calculation()
     }
     
-    // TODO: понять где вызывать данную функцию. просто так не работает.
-    // по идее, нужно подписаться на события данного объекта.
-    // суть функции - проверяем количество введённых точек и запятых
-    // и припятствовать вводу больше одного разделителя
+    // функция проверяет соостояние валюты и приводит положение в соответствие
+    private func checkTypeCurrency() {
+        if Settings.shared.currentSettings.stateTypeCurrency {
+            currency.selectedSegmentIndex = 1
+        } else {
+            currency.selectedSegmentIndex = 0
+        }
+    }
+    
+    // проверяем количество введённых точек/запятых
+    // и припятствовать вводу больше одного разделителя в каждом поле
     
     func textField(_ betaParameter: UITextField,
                    shouldChangeCharactersIn range: NSRange,
@@ -87,7 +98,7 @@ class DiscountedCashFlowVC: UIViewController, UITextFieldDelegate {
         return true
     }
     
-
+    // TODO: реализовать метод запрета вставки из буфера обмена данных в TextField
     
     // запускаем пересчёт при любых изменениях в текстовых полях ввода параметров
     func textFieldDidChangeSelection(_ textField: UITextField) {
@@ -100,10 +111,10 @@ class DiscountedCashFlowVC: UIViewController, UITextFieldDelegate {
         let betaParameter: Double? = Double(betaParameter.text!)
         let divParameter: Double? = Double(divParameter.text!)
         
-        let result = checkParameters(betaParameter: betaParameter, divParameter: divParameter)
+        let result = FairValue.calculationImp().checkParameters(betaParameter: betaParameter, divParameter: divParameter)
         
         if result == "ok" {
-            let resultFairValue = FairValue.calcFairValue(betaParameter: betaParameter!, divParameter: divParameter!)
+            let resultFairValue = FairValue.calculationImp().calcFairValue(betaParameter: betaParameter!, divParameter: divParameter!)
             resultLabel.textColor = UIColor.systemGreen
             resultLabel.text = String(resultFairValue)
         } else {
@@ -111,37 +122,7 @@ class DiscountedCashFlowVC: UIViewController, UITextFieldDelegate {
             resultLabel.text = String(result)
         }
     }
-    
-    // функция проверки параметров перед расчётом
-    // возвращает текст уведомления, если параметры не соответствуют ожидаемым значениям
-    func checkParameters(betaParameter: Double?, divParameter: Double?) -> String {
-        let constrInput = Settings.shared.currentSettings.constrInput
-        var result = "ok"
-        
-        // проверяем параметр Бета, чтобы он не был пустым
-        if betaParameter == nil || betaParameter! == 0 {
-            result = "Введите Бету "
-            if divParameter == nil || divParameter! == 0  {
-                result += "и дивиденды"
-                return result
-            }
-            return result
-        } else {
-            if divParameter == nil || divParameter! == 0 {
-                result = "Введите дивиденды"
-                return result
-            }
-            if betaParameter! <= constrInput {
-                result = "Бета меньше " + String(constrInput) + " "
-                if divParameter! <= 0 {
-                    result += "и дивиденды больше 0"
-                    return result
-                }
-                return result
-            }
-        }
-        return result
-    }
+  
 
     
 }

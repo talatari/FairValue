@@ -18,7 +18,7 @@ class MethodSelectionVC: UIViewController {
     }
 }
 
-// MARK: Private methods
+// MARK: Private Methods
 
 private extension MethodSelectionVC {
     func displayAgreementIfNeeded() {
