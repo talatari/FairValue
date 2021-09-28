@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ConstantsTVC: UITableViewController {
+class ConstantsTVC: UITableViewController, UITextFieldDelegate {
 
     // MARK: Outlets
     
@@ -23,6 +23,10 @@ class ConstantsTVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        baseConstant.delegate = self
+        riskPremConstant.delegate = self
+        inflConstant.delegate = self
         
         // TODO: написать функцию, которая будет наполнять нужными значениями
         
@@ -41,9 +45,19 @@ class ConstantsTVC: UITableViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        
         checkConstants()
     }
     
+    // 
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        // запрещаем оставлять поле пустым
+        if textField.text! == "" {
+            textField.text! = "0"
+        }
+        print("'" + textField.text! + "'")
+    
+    }
     
     
     // переопределение метода позволяющего сворачивать клавиатуру при нажатии
@@ -52,7 +66,35 @@ class ConstantsTVC: UITableViewController {
         if let _ = touches.first {
             view.endEditing(true)
         }
-        super.touchesBegan(touches, with:event)
+        super.touchesBegan(touches, with: event)
+    }
+    
+    // TODO: сделать единый метод проверки для всех View
+    // проверяем количество введённых точек/запятых
+    // и припятствовать вводу больше одного разделителя в каждом поле
+    func textField(_ betaParameter: UITextField,
+                   shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
+        let leghtCountTF = betaParameter.text!.count
+        if string != "" {
+            if leghtCountTF >= 4 {
+                return false
+            }
+        }
+        let dotsCount = betaParameter.text!.components(separatedBy: ".").count - 1
+        if dotsCount > 0 && (string == "." || string == ",") {
+            return false
+        }
+        if string == "," {
+            betaParameter.text! += "."
+            return false
+        }
+        if string.isNumber && betaParameter.text! == "0" {
+            betaParameter.text! = ""
+            betaParameter.text! = string
+            return false
+        }
+        return true
     }
     
     // проверка констант на изменение и сохрение, если такие есть

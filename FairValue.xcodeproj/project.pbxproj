@@ -18,8 +18,6 @@
 		1E21672026DB457F001F420C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E21671E26DB457F001F420C /* LaunchScreen.storyboard */; };
 		1E6447FB26EBC996004E0DC3 /* MethodSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6447FA26EBC996004E0DC3 /* MethodSelectionVC.swift */; };
 		1E6447FD26EBCA26004E0DC3 /* AgreementVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6447FC26EBCA26004E0DC3 /* AgreementVC.swift */; };
-		1E6447FF26EBCA87004E0DC3 /* DiscountedCashFlowVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6447FE26EBCA87004E0DC3 /* DiscountedCashFlowVC.swift */; };
-		1E64480126EBCAC8004E0DC3 /* ConstantsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E64480026EBCAC8004E0DC3 /* ConstantsVC.swift */; };
 		1E64480326EBCDBD004E0DC3 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E64480226EBCDBD004E0DC3 /* Settings.swift */; };
 		1ECA73762700C3F300293D58 /* ComparativeApproachTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECA73752700C3F300293D58 /* ComparativeApproachTVC.swift */; };
 		1EEE619C26EB973F008679BB /* Calculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEE619B26EB973F008679BB /* Calculation.swift */; };
@@ -51,8 +49,6 @@
 		1E21672126DB457F001F420C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1E6447FA26EBC996004E0DC3 /* MethodSelectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MethodSelectionVC.swift; sourceTree = "<group>"; };
 		1E6447FC26EBCA26004E0DC3 /* AgreementVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementVC.swift; sourceTree = "<group>"; };
-		1E6447FE26EBCA87004E0DC3 /* DiscountedCashFlowVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountedCashFlowVC.swift; sourceTree = "<group>"; };
-		1E64480026EBCAC8004E0DC3 /* ConstantsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantsVC.swift; sourceTree = "<group>"; };
 		1E64480226EBCDBD004E0DC3 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		1ECA73752700C3F300293D58 /* ComparativeApproachTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparativeApproachTVC.swift; sourceTree = "<group>"; };
 		1EEE619B26EB973F008679BB /* Calculation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculation.swift; sourceTree = "<group>"; };
@@ -120,14 +116,11 @@
 		1E64480426EBCE06004E0DC3 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				1E7D02472702CCF2003E7996 /* Calcs */,
 				1E0B333A26F2156200EBD292 /* FeedBackVC.swift */,
 				1E6447FC26EBCA26004E0DC3 /* AgreementVC.swift */,
-				1E64480026EBCAC8004E0DC3 /* ConstantsVC.swift */,
 				1E0B334C26F8DCD100EBD292 /* ConstantsTVC.swift */,
-				1E6447FE26EBCA87004E0DC3 /* DiscountedCashFlowVC.swift */,
-				1E0B334A26F8D5B000EBD292 /* DiscountedCashFlowTVC.swift */,
 				1E6447FA26EBC996004E0DC3 /* MethodSelectionVC.swift */,
-				1ECA73752700C3F300293D58 /* ComparativeApproachTVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -148,6 +141,15 @@
 				1E21671E26DB457F001F420C /* LaunchScreen.storyboard */,
 			);
 			name = StoryBoards;
+			sourceTree = "<group>";
+		};
+		1E7D02472702CCF2003E7996 /* Calcs */ = {
+			isa = PBXGroup;
+			children = (
+				1E0B334A26F8D5B000EBD292 /* DiscountedCashFlowTVC.swift */,
+				1ECA73752700C3F300293D58 /* ComparativeApproachTVC.swift */,
+			);
+			name = Calcs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,8 +269,6 @@
 				1E6447FB26EBC996004E0DC3 /* MethodSelectionVC.swift in Sources */,
 				1E6447FD26EBCA26004E0DC3 /* AgreementVC.swift in Sources */,
 				1EEE619C26EB973F008679BB /* Calculation.swift in Sources */,
-				1E6447FF26EBCA87004E0DC3 /* DiscountedCashFlowVC.swift in Sources */,
-				1E64480126EBCAC8004E0DC3 /* ConstantsVC.swift in Sources */,
 				1E0B334D26F8DCD100EBD292 /* ConstantsTVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -465,13 +465,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 6C3HM4TJ3U;
 				INFOPLIST_FILE = FairValue/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "SERGEY-TSAPLIN.FairValue";
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = SergeyTsaplin.FairValue;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -484,13 +486,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 6C3HM4TJ3U;
 				INFOPLIST_FILE = FairValue/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "SERGEY-TSAPLIN.FairValue";
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = SergeyTsaplin.FairValue;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

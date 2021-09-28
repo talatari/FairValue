@@ -8,12 +8,100 @@
 import Foundation
 
 
-protocol calculation {
-    func checkParameters(betaParameter: Double?, divParameter: Double?) -> String
-    func calcFairValue(betaParameter: Double, divParameter: Double) -> Double
+enum Currency: Int {
+    case usd
+    case rub
 }
 
-class calculationImp: calculation {
+// Calculation parameters
+extension Currency {
+    
+    var base: Double {
+        switch self {
+        case .rub: return Settings.shared.currentSettings.baseRUB
+        case .usd: return Settings.shared.currentSettings.baseUSA
+        }
+    }
+    
+    var riskPrem: Double {
+        switch self {
+        case .rub: return Settings.shared.currentSettings.riskPremRUB
+        case .usd: return Settings.shared.currentSettings.riskPremUSA
+        }
+    }
+    
+    var infl: Double {
+        switch self {
+        case .rub: return Settings.shared.currentSettings.inflRUB
+        case .usd: return Settings.shared.currentSettings.inflUSA
+        }
+    }
+}
+
+public enum CalculationError: Error {
+    
+    case calculationError(message: String)
+    
+}
+
+class FairValueCalculator {
+    public static let shared = FairValueCalculator()
+    
+    private func checkParameters(betaParameter: Double, divParameter: Double) throws {
+        let constrInput = Settings.shared.currentSettings.constrInput
+        var result = "ok"
+        
+        // проверяем параметр Бета, чтобы он не был пустым
+        if betaParameter.isZero {
+            result = "Введите Бету "
+            if divParameter.isZero  {
+                result += "и дивиденды"
+            }
+        } else {
+            if divParameter.isZero {
+                result = "Введите дивиденды"
+            }
+            if betaParameter <= constrInput {
+                result = "Бета меньше " + String(constrInput) + " "
+                if divParameter <= 0 {
+                    result += "и дивиденды больше 0"
+                }
+            }
+        }
+        
+        if result != "ok" {
+            throw CalculationError.calculationError(message: result)
+        }
+    }
+    
+    func calcFairValue(betaParameter: Double, divParameter: Double, currency: Currency) throws -> Double {
+        
+        try checkParameters(betaParameter: betaParameter, divParameter: divParameter)
+        
+        let riskPrem = currency.riskPrem
+        let base = currency.base
+        let infl = currency.infl
+        
+        var result = (Double(divParameter) / ((Double(betaParameter) * riskPrem + base - infl))) * 100
+        result = round(result * 10) / 10
+        
+        return result
+    }
+    
+    // Функция расчёта справедливой стоимости актива по методу Сравнительного подхода
+    func calcComparativeApproach(YearlyProfit: Double,
+                                 Сapitalization: Double,
+                                 CurrentMarketPrice: Double,
+                                 TargetPE: Double) -> Double {
+        
+        var result = CurrentMarketPrice * TargetPE / (Сapitalization / YearlyProfit)
+        result = round(result * 10) / 10
+        
+        return result
+    }
+    
+/*
+class calculation {
     
     // функция проверки параметров перед расчётом
     // возвращает текст уведомления, если параметры не соответствуют ожидаемым значениям
@@ -85,5 +173,5 @@ class calculationImp: calculation {
         
         return result
     }
-    
+    */
 }

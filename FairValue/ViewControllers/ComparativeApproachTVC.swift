@@ -37,25 +37,50 @@ class ComparativeApproachTVC: UITableViewController, UITextFieldDelegate {
         if let _ = touches.first {
             view.endEditing(true)
         }
-        super.touchesBegan(touches, with:event)
+        super.touchesBegan(touches, with: event)
     }
     
     // MARK: User Actions
     
+    // TODO: сделать единый метод проверки для всех View
     // проверяем количество введённых точек/запятых
     // и припятствовать вводу больше одного разделителя в каждом поле
-    
     func textField(_ betaParameter: UITextField,
                    shouldChangeCharactersIn range: NSRange,
                    replacementString string: String) -> Bool {
+        
+        // проверяем что введённый символ НЕ число ИЛИ НЕ точка ИЛИ НЕ запятая ИЛИ НЕ действие стирание
+//        if !string.isNumber || string == "." || string == "," || string == "" {
+//            print(string.isNumber)
+//            print(string)
+//            return false
+//        }
+        
+        // считаем сколько уже введено символов и проверяем, если действие не стирание
+        let leghtCountTF = betaParameter.text!.count
+        if string != "" && leghtCountTF >= 7 {
+            return false
+        }
+        
+        // подсчитываем сколько уже точек введено в строку
         let dotsCount = betaParameter.text!.components(separatedBy: ".").count - 1
         if dotsCount > 0 && (string == "." || string == ",") {
             return false
         }
+        
+        // замена запятой на точку
         if string == "," {
             betaParameter.text! += "."
             return false
         }
+        
+        // если ввели число и введен 0 - убираем 0, записываем число
+        if string.isNumber && betaParameter.text! == "0" {
+            betaParameter.text! = ""
+            betaParameter.text! = string
+            return false
+        }
+        
         return true
     }
     
@@ -63,24 +88,42 @@ class ComparativeApproachTVC: UITableViewController, UITextFieldDelegate {
     
     // запускаем пересчёт при любых изменениях в текстовых полях ввода параметров
     func textFieldDidChangeSelection(_ textField: UITextField) {
+        // запрещаем оставлять поле пустым
+        if textField.text! == "" {
+            textField.text! = "0"
+        }
         calculation()
     }
     
     // функция расчёта справедливой стоимости
     private func calculation() {
         
-        let YearlyProfit: Double? = Double(YearlyProfit.text!)
-        let Сapitalization: Double? = Double(Сapitalization.text!)
-        let CurrentMarketPrice: Double? = Double(CurrentMarketPrice.text!)
-        let TargetPE: Double? = Double(TargetPE.text!)
+        guard
+            let YearlyProfit = Double(YearlyProfit.text!),
+            let Сapitalization = Double(Сapitalization.text!),
+            let CurrentMarketPrice = Double(CurrentMarketPrice.text!),
+            let TargetPE = Double(TargetPE.text!)
+        else {
+            print("Введён текст или пусто")
+            return
+        }
         
-        let resultFairValue = FairValue.calculationImp().calcComparativeApproach(YearlyProfit: YearlyProfit!,
-                                                                                 Сapitalization: Сapitalization!,
-                                                                                 CurrentMarketPrice: CurrentMarketPrice!,
-                                                                                 TargetPE: TargetPE!)
+        let calculator = FairValueCalculator.shared
+        
+        let resultFairValue = calculator.calcComparativeApproach(YearlyProfit: YearlyProfit,
+                                                                                 Сapitalization: Сapitalization,
+                                                                                 CurrentMarketPrice: CurrentMarketPrice,
+                                                                                 TargetPE: TargetPE)
         ResultLabel.textColor = UIColor.systemGreen
         ResultLabel.text = String(resultFairValue)
 
     }
 
+}
+
+
+extension String  {
+    var isNumber: Bool {
+        return !isEmpty && rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil
+    }
 }
