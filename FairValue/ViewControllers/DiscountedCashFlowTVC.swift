@@ -89,47 +89,57 @@ class DiscountedCashFlowTVC: UITableViewController, UITextFieldDelegate {
     func textField(_ betaParameter: UITextField,
                    shouldChangeCharactersIn range: NSRange,
                    replacementString string: String) -> Bool {
+        
+        // считаем сколько уже введено символов и проверяем, если действие не стирание
         let leghtCountTF = betaParameter.text!.count
-        if string != "" {
-            if leghtCountTF >= 7 {
-                return false
-            }
+        if string != "" && leghtCountTF >= 7 {
+            return false
         }
+        
+        // TODO: заменить на сет данных разрешенных к вводу?
+        // подсчитываем сколько уже точек введено в строку
         let dotsCount = betaParameter.text!.components(separatedBy: ".").count - 1
         if dotsCount > 0 && (string == "." || string == ",") {
             return false
         }
+        
+        // замена запятой на точку
         if string == "," {
             betaParameter.text! += "."
             return false
         }
+        
+        // если ввели число и введен 0 - убираем 0, записываем число
         if string.isNumber && betaParameter.text! == "0" {
-            betaParameter.text! = ""
             betaParameter.text! = string
+            calculation()
             return false
         }
+        
         return true
     }
     
     // TODO: реализовать метод запрета вставки из буфера обмена данных в TextField
-    
     // запускаем пересчёт при любых изменениях в текстовых полях ввода параметров
     func textFieldDidChangeSelection(_ textField: UITextField) {
+        
         // запрещаем оставлять поле пустым
-        if textField.text! == "" {
-            textField.text! = "0"
+       if textField.text! == "" {
+           textField.text! = "0"
         }
         calculation()
+        
     }
     
     // функция расчёта справедливой стоимости
     private func calculation() {
         
+        //print("\n CALCULATION \n")
+        
         guard
             let betaParameter = Double(betaParameter.text!),
             let divParameter = Double(divParameter.text!)
         else {
-            
             return
         }
         
@@ -141,10 +151,10 @@ class DiscountedCashFlowTVC: UITableViewController, UITextFieldDelegate {
         let calculator = FairValueCalculator.shared
         
         do {
-            let resultFairValue = try calculator.calcFairValue(
-                betaParameter: betaParameter, divParameter: divParameter, currency: currency
+            let resultFairValue = try calculator.calcFairValue(betaParameter: betaParameter,
+                                                               divParameter: divParameter,
+                                                               currency: currency
             )
-            
             resultLabel.textColor = UIColor.systemGreen
             resultLabel.text = String(resultFairValue)
         }
@@ -153,7 +163,7 @@ class DiscountedCashFlowTVC: UITableViewController, UITextFieldDelegate {
             resultLabel.text = error
         }
         catch {
-            print("catch")
+            // Для чего этот catch?
         }
         
     }

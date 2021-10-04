@@ -16,6 +16,7 @@
 		1E21671B26DB457C001F420C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E21671926DB457C001F420C /* Main.storyboard */; };
 		1E21671D26DB457F001F420C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E21671C26DB457F001F420C /* Assets.xcassets */; };
 		1E21672026DB457F001F420C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E21671E26DB457F001F420C /* LaunchScreen.storyboard */; };
+		1E3DD8192706D99F001A46E6 /* TestDynamicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3DD8182706D99F001A46E6 /* TestDynamicTableViewController.swift */; };
 		1E6447FB26EBC996004E0DC3 /* MethodSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6447FA26EBC996004E0DC3 /* MethodSelectionVC.swift */; };
 		1E6447FD26EBCA26004E0DC3 /* AgreementVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6447FC26EBCA26004E0DC3 /* AgreementVC.swift */; };
 		1E64480326EBCDBD004E0DC3 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E64480226EBCDBD004E0DC3 /* Settings.swift */; };
@@ -47,6 +48,7 @@
 		1E21671C26DB457F001F420C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1E21671F26DB457F001F420C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1E21672126DB457F001F420C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1E3DD8182706D99F001A46E6 /* TestDynamicTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TestDynamicTableViewController.swift; path = ../TestDynamicTableViewController.swift; sourceTree = "<group>"; };
 		1E6447FA26EBC996004E0DC3 /* MethodSelectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MethodSelectionVC.swift; sourceTree = "<group>"; };
 		1E6447FC26EBCA26004E0DC3 /* AgreementVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementVC.swift; sourceTree = "<group>"; };
 		1E64480226EBCDBD004E0DC3 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
@@ -116,11 +118,8 @@
 		1E64480426EBCE06004E0DC3 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				1E7D02472702CCF2003E7996 /* Calcs */,
-				1E0B333A26F2156200EBD292 /* FeedBackVC.swift */,
-				1E6447FC26EBCA26004E0DC3 /* AgreementVC.swift */,
-				1E0B334C26F8DCD100EBD292 /* ConstantsTVC.swift */,
-				1E6447FA26EBC996004E0DC3 /* MethodSelectionVC.swift */,
+				1E7D02482703A112003E7996 /* Navi & Others */,
+				1E7D02472702CCF2003E7996 /* Calculations */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -143,13 +142,25 @@
 			name = StoryBoards;
 			sourceTree = "<group>";
 		};
-		1E7D02472702CCF2003E7996 /* Calcs */ = {
+		1E7D02472702CCF2003E7996 /* Calculations */ = {
 			isa = PBXGroup;
 			children = (
+				1E3DD8182706D99F001A46E6 /* TestDynamicTableViewController.swift */,
 				1E0B334A26F8D5B000EBD292 /* DiscountedCashFlowTVC.swift */,
 				1ECA73752700C3F300293D58 /* ComparativeApproachTVC.swift */,
 			);
-			name = Calcs;
+			name = Calculations;
+			sourceTree = "<group>";
+		};
+		1E7D02482703A112003E7996 /* Navi & Others */ = {
+			isa = PBXGroup;
+			children = (
+				1E6447FC26EBCA26004E0DC3 /* AgreementVC.swift */,
+				1E0B333A26F2156200EBD292 /* FeedBackVC.swift */,
+				1E6447FA26EBC996004E0DC3 /* MethodSelectionVC.swift */,
+				1E0B334C26F8DCD100EBD292 /* ConstantsTVC.swift */,
+			);
+			path = "Navi & Others";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,6 +276,7 @@
 				1E0B334B26F8D5B000EBD292 /* DiscountedCashFlowTVC.swift in Sources */,
 				1E64480326EBCDBD004E0DC3 /* Settings.swift in Sources */,
 				1E0B333B26F2156200EBD292 /* FeedBackVC.swift in Sources */,
+				1E3DD8192706D99F001A46E6 /* TestDynamicTableViewController.swift in Sources */,
 				1ECA73762700C3F300293D58 /* ComparativeApproachTVC.swift in Sources */,
 				1E6447FB26EBC996004E0DC3 /* MethodSelectionVC.swift in Sources */,
 				1E6447FD26EBCA26004E0DC3 /* AgreementVC.swift in Sources */,

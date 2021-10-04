@@ -75,25 +75,32 @@ class ConstantsTVC: UITableViewController, UITextFieldDelegate {
     func textField(_ betaParameter: UITextField,
                    shouldChangeCharactersIn range: NSRange,
                    replacementString string: String) -> Bool {
+        
+        // считаем сколько уже введено символов и проверяем, если действие не стирание
         let leghtCountTF = betaParameter.text!.count
-        if string != "" {
-            if leghtCountTF >= 4 {
-                return false
-            }
+        if string != "" && leghtCountTF >= 7 {
+            return false
         }
+        
+        // подсчитываем сколько уже точек введено в строку
         let dotsCount = betaParameter.text!.components(separatedBy: ".").count - 1
         if dotsCount > 0 && (string == "." || string == ",") {
             return false
         }
+        
+        // замена запятой на точку
         if string == "," {
             betaParameter.text! += "."
             return false
         }
+        
+        // если ввели число и введен 0 - убираем 0, записываем число
         if string.isNumber && betaParameter.text! == "0" {
             betaParameter.text! = ""
             betaParameter.text! = string
             return false
         }
+        
         return true
     }
     

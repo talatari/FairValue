@@ -11,10 +11,10 @@ class ComparativeApproachTVC: UITableViewController, UITextFieldDelegate {
     
     // MARK: Outlets
     
-    @IBOutlet weak var YearlyProfit: UITextField!
-    @IBOutlet weak var Сapitalization: UITextField!
     @IBOutlet weak var CurrentMarketPrice: UITextField!
+    @IBOutlet weak var Сapitalization: UITextField!
     @IBOutlet weak var TargetPE: UITextField!
+    @IBOutlet weak var YearlyProfit: UITextField!
     
     @IBOutlet weak var ResultLabel: UILabel!
     
@@ -49,13 +49,6 @@ class ComparativeApproachTVC: UITableViewController, UITextFieldDelegate {
                    shouldChangeCharactersIn range: NSRange,
                    replacementString string: String) -> Bool {
         
-        // проверяем что введённый символ НЕ число ИЛИ НЕ точка ИЛИ НЕ запятая ИЛИ НЕ действие стирание
-//        if !string.isNumber || string == "." || string == "," || string == "" {
-//            print(string.isNumber)
-//            print(string)
-//            return false
-//        }
-        
         // считаем сколько уже введено символов и проверяем, если действие не стирание
         let leghtCountTF = betaParameter.text!.count
         if string != "" && leghtCountTF >= 7 {
@@ -76,11 +69,10 @@ class ComparativeApproachTVC: UITableViewController, UITextFieldDelegate {
         
         // если ввели число и введен 0 - убираем 0, записываем число
         if string.isNumber && betaParameter.text! == "0" {
-            betaParameter.text! = ""
             betaParameter.text! = string
+            calculation()
             return false
         }
-        
         return true
     }
     
