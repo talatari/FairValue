@@ -76,13 +76,23 @@ class FairValueCalculator {
 //            errorParameters.insert(.noneDiv)
 //        }
 //
-//        switch(errorParameters) {
-//        case .noneBeta: return result = "Введите Бету"
-//        case .littleBeta: return result = "Введите Бету > " + String(constrInput) + " "
-//        case .noneDiv: return result = "Введите дивиденды"
-//        default:
-//            return result = "ok"
+//        if errorParameters.contains(.noneBeta) {
+//            result = "Введите Бету "
+//        } else if errorParameters.contains(.littleBeta) {
+//            result = "Введите Бету > " + String(constrInput) + " "
 //        }
+//
+//        if errorParameters.contains(.noneDiv)
+//            && errorParameters.contains(.noneBeta)
+//            || errorParameters.contains(.littleBeta) {
+//            result = ""
+//            result = "Введите Бету и дивиденды"
+//        } else if errorParameters.contains(.noneDiv) {
+//            result = ""
+//            result = "Введите дивиденды"
+//        }
+//
+        
         
         if betaParameter.isZero {
             result = "Введите Бету "

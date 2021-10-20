@@ -10,10 +10,10 @@ import XCTest
 
 class FairValueTests: XCTestCase {
     
-    var calculation: calculation!
+    var calculation: FairValueCalculator!
 
     override func setUpWithError() throws {
-        calculation = calculationImp()
+        calculation = FairValueCalculator()
     }
 
     override func tearDownWithError() throws {
@@ -21,19 +21,26 @@ class FairValueTests: XCTestCase {
     }
 
     func testCalculationFairValue() throws {
-        
+        /*
         let betaParameter = 100.0
         let divParameter = 15.0
+        let Currency = 0
         var ValidatedResult: Double
         
-        Settings.shared.currentSettings.stateTypeCurrency = true
-        ValidatedResult = calculation.calcFairValue(betaParameter: betaParameter, divParameter: divParameter)
+        
+        ValidatedResult = calculation.calcFairValue(betaParameter: betaParameter,
+                                                    divParameter: divParameter,
+                                                    currency: Currency(rawValue: Currency.self)
+        )
         print(ValidatedResult)
         
-        Settings.shared.currentSettings.stateTypeCurrency = false
-        ValidatedResult = calculation.calcFairValue(betaParameter: betaParameter, divParameter: divParameter)
+        
+        ValidatedResult = calculation.calcFairValue(betaParameter: betaParameter,
+                                                    divParameter: divParameter,
+                                                    currency: Currency(rawValue: Currency.self)
+        )
         print(ValidatedResult)
-    
+    */
         
     }
 

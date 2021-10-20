@@ -131,7 +131,8 @@ class DiscountedCashFlowTVC: UITableViewController, UITextFieldDelegate {
         
     }
     
-    // функция расчёта справедливой стоимости
+    // как протестировать приватную функцию?
+    // ведь внутри calculator.calcFairValue мы ничего не знаем о том что такое currency
     private func calculation() {
         
         //print("\n CALCULATION \n")

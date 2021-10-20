@@ -11,10 +11,6 @@ class ConstantsTVC: UITableViewController, UITextFieldDelegate {
 
     // MARK: Outlets
     
-    //@IBOutlet weak var baseConstant: UITextField!
-    //@IBOutlet weak var riskPremConstant: UITextField!
-    //@IBOutlet weak var inflConstant: UITextField!
-    
     @IBOutlet weak var baseConstant: UITextField!
     @IBOutlet weak var riskPremConstant: UITextField!
     @IBOutlet weak var inflConstant: UITextField!

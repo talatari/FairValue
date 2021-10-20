@@ -92,12 +92,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Введите тему" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="52E-Y3-JSE">
-                                <rect key="frame" x="20" y="146" width="316" height="34"/>
+                                <rect key="frame" x="20" y="50" width="316" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kPb-aJ-l0l">
-                                <rect key="frame" x="356" y="146" width="50" height="34"/>
+                                <rect key="frame" x="356" y="50" width="50" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="Rvb-0u-h0v"/>
                                     <constraint firstAttribute="width" constant="50" id="gmX-6y-DPL"/>
@@ -108,7 +108,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Опишите ошибку или предложение по улучшению" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lOJ-L8-Wm1">
-                                <rect key="frame" x="20" y="200" width="388" height="164"/>
+                                <rect key="frame" x="20" y="104" width="388" height="260"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -170,29 +170,10 @@
                                     <segue destination="sNY-Dk-dGb" kind="show" id="Dw9-Qz-Oaf"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bln-Nx-SPs">
-                                <rect key="frame" x="141.66666666666666" y="356" width="144.99999999999997" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Обратная связь"/>
-                                <connections>
-                                    <segue destination="9K9-kp-NRH" kind="show" id="Dtn-WI-kAs"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W82-AJ-ZLc">
-                                <rect key="frame" x="141" y="446" width="145.33333333333331" height="34.333333333333336"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="testing dynamic"/>
-                                <connections>
-                                    <segue destination="PpO-0t-96k" kind="show" id="5e9-cl-SVz"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="IG1-QG-zFv"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Bln-Nx-SPs" firstAttribute="top" secondItem="bMT-uN-Zbb" secondAttribute="bottom" constant="40" id="ELf-Gc-SfR"/>
-                            <constraint firstItem="Bln-Nx-SPs" firstAttribute="centerX" secondItem="IG1-QG-zFv" secondAttribute="centerX" id="FGY-a6-HTc"/>
                             <constraint firstItem="bMT-uN-Zbb" firstAttribute="top" secondItem="AAV-kM-ZLl" secondAttribute="bottom" constant="20" id="HJx-AK-pMp"/>
                             <constraint firstItem="AAV-kM-ZLl" firstAttribute="centerX" secondItem="IG1-QG-zFv" secondAttribute="centerX" id="TlQ-Ka-Dtf"/>
                             <constraint firstItem="AAV-kM-ZLl" firstAttribute="top" secondItem="eOp-9r-Pgd" secondAttribute="bottom" constant="40" id="VS9-ut-CSp"/>
@@ -299,7 +280,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="388" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" placeholder="Только числа" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xxl-qJ-4Ra">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Только числа" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xxl-qJ-4Ra">
                                                     <rect key="frame" x="278" y="10" width="90" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="nr4-kD-5BP"/>
@@ -345,7 +326,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="388" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" placeholder="Только числа" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Jl-SR-FKa">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Только числа" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Jl-SR-FKa">
                                                     <rect key="frame" x="278" y="10" width="90" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="h3F-6f-84T"/>
@@ -576,7 +557,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="388" height="40"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" placeholder="Только числа" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IKv-jn-24t">
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Только числа" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IKv-jn-24t">
                                                     <rect key="frame" x="200" y="3" width="170" height="34"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -600,7 +581,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="388" height="40"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" placeholder="Только числа" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qjZ-zS-MrX">
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Только числа" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qjZ-zS-MrX">
                                                     <rect key="frame" x="200" y="3" width="170" height="34"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -624,7 +605,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="388" height="40"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" placeholder="Только числа" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zxz-Ew-AE4">
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Только числа" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zxz-Ew-AE4">
                                                     <rect key="frame" x="200" y="3" width="170" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -648,7 +629,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="388" height="40"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" placeholder="Только числа" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ANG-ho-63Y">
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Только числа" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ANG-ho-63Y">
                                                     <rect key="frame" x="200" y="3" width="170" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -685,35 +666,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R6U-Nu-oz0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="682.71028037383178" y="412.7429805615551"/>
-        </scene>
-        <!--Test Dynamic Table View Controller-->
-        <scene sceneID="Ruf-4E-pQ8">
-            <objects>
-                <tableViewController id="PpO-0t-96k" customClass="TestDynamicTableViewController" customModule="FairValue" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="1dU-Be-zZe">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Jrp-gj-xa6">
-                                <rect key="frame" x="0.0" y="31.666666030883789" width="428" height="43.666667938232422"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jrp-gj-xa6" id="lPH-BI-kCt">
-                                    <rect key="frame" x="0.0" y="0.0" width="428" height="43.666667938232422"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="PpO-0t-96k" id="UAQ-9J-1aC"/>
-                            <outlet property="delegate" destination="PpO-0t-96k" id="UX8-4V-Hw6"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="cSe-PI-nbH"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PeW-gK-UYm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1621" y="413"/>
         </scene>
     </scenes>
     <resources>
