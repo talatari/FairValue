@@ -15,6 +15,11 @@ class MethodSelectionTVC: UITableViewController {
         displayAgreementIfNeeded()
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
     var methods = [
         (name: "Дисконтирование денежных потоков", segue: "discountedCashFlow"),
         (name: "Сравнительный подход", segue: "comparativeApproach")
