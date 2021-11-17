@@ -96,7 +96,6 @@ class ComparativeApproachTVC: UITableViewController, UITextFieldDelegate {
             let CurrentMarketPrice = Double(CurrentMarketPrice.text!),
             let TargetPE = Double(TargetPE.text!)
         else {
-            print("Введён текст или пусто")
             return
         }
         

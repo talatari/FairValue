@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cNJ-rt-wcZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cNJ-rt-wcZ">
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,12 +18,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="ETG-aB-1az" kind="relationship" relationship="rootViewController" id="n9I-Aw-107"/>
+                        <segue destination="Ock-b2-Dqn" kind="relationship" relationship="rootViewController" id="O71-av-285"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JNG-z1-8uh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1446" y="-9"/>
+            <point key="canvasLocation" x="-1806" y="-9"/>
         </scene>
         <!--Уведомление-->
         <scene sceneID="60o-0t-zjU">
@@ -81,7 +81,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eOB-93-TFQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-111" y="767"/>
+            <point key="canvasLocation" x="-890" y="753"/>
         </scene>
         <!--Обратная связь-->
         <scene sceneID="10L-7H-LVn">
@@ -138,58 +138,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NqF-fF-VNi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-890.18691588785043" y="766.52267818574524"/>
-        </scene>
-        <!--Меню-->
-        <scene sceneID="Tih-yl-OdV">
-            <objects>
-                <viewController id="ETG-aB-1az" customClass="MethodSelectionVC" customModule="FairValue" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="c7J-yE-DXp">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Выберите метод" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eOp-9r-Pgd">
-                                <rect key="frame" x="137.66666666666666" y="160" width="152.99999999999997" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="highlightedColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AAV-kM-ZLl">
-                                <rect key="frame" x="42" y="224" width="344" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Дисконтирование денежных потоков"/>
-                                <connections>
-                                    <segue destination="uID-Vy-6Bw" kind="show" id="XX2-oL-olG"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="752" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bMT-uN-Zbb">
-                                <rect key="frame" x="105.66666666666669" y="280" width="217" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Сравнительный подход"/>
-                                <connections>
-                                    <segue destination="sNY-Dk-dGb" kind="show" id="Dw9-Qz-Oaf"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="IG1-QG-zFv"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="bMT-uN-Zbb" firstAttribute="top" secondItem="AAV-kM-ZLl" secondAttribute="bottom" constant="20" id="HJx-AK-pMp"/>
-                            <constraint firstItem="AAV-kM-ZLl" firstAttribute="centerX" secondItem="IG1-QG-zFv" secondAttribute="centerX" id="TlQ-Ka-Dtf"/>
-                            <constraint firstItem="AAV-kM-ZLl" firstAttribute="top" secondItem="eOp-9r-Pgd" secondAttribute="bottom" constant="40" id="VS9-ut-CSp"/>
-                            <constraint firstItem="bMT-uN-Zbb" firstAttribute="centerX" secondItem="IG1-QG-zFv" secondAttribute="centerX" id="dB0-i1-6DT"/>
-                            <constraint firstItem="eOp-9r-Pgd" firstAttribute="top" secondItem="IG1-QG-zFv" secondAttribute="top" constant="20" id="gXf-aD-GCy"/>
-                            <constraint firstItem="eOp-9r-Pgd" firstAttribute="centerX" secondItem="IG1-QG-zFv" secondAttribute="centerX" id="jNi-FQ-KrD"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Меню" id="sxk-VL-S1Q"/>
-                    <connections>
-                        <segue destination="vOT-ZF-DLY" kind="presentation" identifier="PresentAgreementSegue" id="vw2-rs-IAf"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="p9J-hX-EUd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-470" y="-9"/>
+            <point key="canvasLocation" x="899" y="753"/>
         </scene>
         <!--Расчёт-->
         <scene sceneID="FzS-hC-whc">
@@ -389,7 +338,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rfO-NZ-EI8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="682.71028037383178" y="-275.37796976241901"/>
+            <point key="canvasLocation" x="-14" y="-9"/>
         </scene>
         <!--Настройки-->
         <scene sceneID="mC2-9l-39c">
@@ -513,7 +462,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xAq-Ni-wUV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1621" y="-275"/>
+            <point key="canvasLocation" x="899" y="-9"/>
         </scene>
         <!--Расчёт-->
         <scene sceneID="1Wd-QY-dQT">
@@ -665,7 +614,73 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R6U-Nu-oz0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="682.71028037383178" y="412.7429805615551"/>
+            <point key="canvasLocation" x="-14" y="753"/>
+        </scene>
+        <!--Меню-->
+        <scene sceneID="LOE-8D-l1G">
+            <objects>
+                <tableViewController id="Ock-b2-Dqn" customClass="MethodSelectionTVC" customModule="FairValue" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="uLx-oF-dIJ">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MethodCell" textLabel="jFd-u5-brk" style="IBUITableViewCellStyleDefault" id="K7v-74-axw">
+                                <rect key="frame" x="20" y="31.666666030883789" width="388" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="K7v-74-axw" id="Cel-Tz-cdr">
+                                    <rect key="frame" x="0.0" y="0.0" width="358.33333333333331" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jFd-u5-brk">
+                                            <rect key="frame" x="20" y="0.0" width="330.33333333333331" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="SuperMethodCell" textLabel="XLD-1Q-ocI" detailTextLabel="aG7-ge-6b5" style="IBUITableViewCellStyleSubtitle" id="2fj-SN-iqp">
+                                <rect key="frame" x="20" y="75.333333969116211" width="388" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2fj-SN-iqp" id="d2t-Ji-8Bv">
+                                    <rect key="frame" x="0.0" y="0.0" width="347.33333333333331" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XLD-1Q-ocI">
+                                            <rect key="frame" x="20" y="7.0000000000000009" width="25" height="14.333333333333334"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aG7-ge-6b5">
+                                            <rect key="frame" x="19.999999999999996" y="23.333333333333336" width="40.666666666666664" height="13.333333333333334"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Ock-b2-Dqn" id="Jdl-gs-elr"/>
+                            <outlet property="delegate" destination="Ock-b2-Dqn" id="gzD-Bh-xO9"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Меню" id="tZF-RD-T5d"/>
+                    <connections>
+                        <segue destination="uID-Vy-6Bw" kind="show" identifier="discountedCashFlow" id="7aO-8B-dob"/>
+                        <segue destination="sNY-Dk-dGb" kind="show" identifier="comparativeApproach" id="Kph-hN-9bd"/>
+                        <segue destination="vOT-ZF-DLY" kind="modal" identifier="PresentAgreementSegue" id="Sw9-mZ-QWK"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9CZ-Lq-Juq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-890" y="-9"/>
         </scene>
     </scenes>
     <resources>

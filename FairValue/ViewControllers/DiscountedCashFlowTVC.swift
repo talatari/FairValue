@@ -135,8 +135,6 @@ class DiscountedCashFlowTVC: UITableViewController, UITextFieldDelegate {
     // ведь внутри calculator.calcFairValue мы ничего не знаем о том что такое currency
     private func calculation() {
         
-        //print("\n CALCULATION \n")
-        
         guard
             let betaParameter = Double(betaParameter.text!),
             let divParameter = Double(divParameter.text!)
