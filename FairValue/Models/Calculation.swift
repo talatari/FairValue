@@ -46,14 +46,6 @@ public enum CalculationError: Error {
 }
 
 
-//struct ErrorSet: OptionSet {
-//
-//    let rawValue: Int
-//
-//    static let noneBeta = ErrorSet(rawValue: 1 << 0)
-//    static let littleBeta = ErrorSet(rawValue: 1 << 1)
-//    static let noneDiv = ErrorSet(rawValue: 1 << 2)
-//}
 
 class FairValueCalculator {
     
@@ -62,37 +54,6 @@ class FairValueCalculator {
     private func checkParameters(betaParameter: Double, divParameter: Double) throws {
         let constrInput = Settings.shared.currentSettings.constrInput
         var result = "ok"
-        
-//        var errorParameters: ErrorSet = []
-//
-//        if betaParameter.isZero {
-//            errorParameters.insert(.noneBeta)
-//        }
-//        else if betaParameter <= constrInput {
-//            errorParameters.insert(.littleBeta)
-//        }
-//
-//        if divParameter.isZero {
-//            errorParameters.insert(.noneDiv)
-//        }
-//
-//        if errorParameters.contains(.noneBeta) {
-//            result = "Введите Бету "
-//        } else if errorParameters.contains(.littleBeta) {
-//            result = "Введите Бету > " + String(constrInput) + " "
-//        }
-//
-//        if errorParameters.contains(.noneDiv)
-//            && errorParameters.contains(.noneBeta)
-//            || errorParameters.contains(.littleBeta) {
-//            result = ""
-//            result = "Введите Бету и дивиденды"
-//        } else if errorParameters.contains(.noneDiv) {
-//            result = ""
-//            result = "Введите дивиденды"
-//        }
-//
-        
         
         if betaParameter.isZero {
             result = "Введите Бету "
