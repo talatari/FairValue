@@ -20,7 +20,7 @@ class MethodSelectionTVC: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    var methods = [
+    let methods = [
         (name: "Дисконтирование денежных потоков", segue: "discountedCashFlow"),
         (name: "Сравнительный подход", segue: "comparativeApproach")
     ]
@@ -36,7 +36,8 @@ class MethodSelectionTVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Выберите метод расчёта"
+        //return "Выберите метод расчёта"
+         return " "
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -52,7 +53,6 @@ class MethodSelectionTVC: UITableViewController {
         performSegue(withIdentifier: methods[indexPath.row].segue, sender: self)
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
 }
 
 
@@ -60,12 +60,9 @@ class MethodSelectionTVC: UITableViewController {
 
 private extension MethodSelectionTVC {
     func displayAgreementIfNeeded() {
-        
         guard !Settings.shared.currentSettings.stateSwitchAgreement else {
             return
         }
-        
         performSegue(withIdentifier: "PresentAgreementSegue", sender: self)
-        
     }
 }

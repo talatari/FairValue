@@ -51,7 +51,7 @@ class ComparativeApproachTVC: UITableViewController, UITextFieldDelegate {
         
         // считаем сколько уже введено символов и проверяем, если действие не стирание
         let leghtCountTF = betaParameter.text!.count
-        if string != "" && leghtCountTF >= 7 {
+        if string != "" && leghtCountTF >= constraintLenghtTextFieldComparativeA {
             return false
         }
         
@@ -99,12 +99,12 @@ class ComparativeApproachTVC: UITableViewController, UITextFieldDelegate {
             return
         }
         
-        let calculator = FairValueCalculator.shared
+        let calculator = CalculationCA.shared
         
         let resultFairValue = calculator.calcComparativeApproach(YearlyProfit: YearlyProfit,
-                                                                                 Сapitalization: Сapitalization,
-                                                                                 CurrentMarketPrice: CurrentMarketPrice,
-                                                                                 TargetPE: TargetPE)
+                                                                 Сapitalization: Сapitalization,
+                                                                 CurrentMarketPrice: CurrentMarketPrice,
+                                                                 TargetPE: TargetPE)
         ResultLabel.textColor = UIColor.systemGreen
         ResultLabel.text = String(resultFairValue)
 

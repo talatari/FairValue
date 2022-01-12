@@ -11,6 +11,10 @@ enum KeysUserDefaults {
     static let SettingsApp = "SettingsApp"
 }
 
+let constraintLenghtTextFieldConstants = 7
+let constraintLenghtTextFieldDiscountedCF = 10
+let constraintLenghtTextFieldComparativeA = 10
+
 struct SettingsApp: Codable {
     var stateSwitchAgreement: Bool
     var stateTypeCurrency: Bool
@@ -25,6 +29,7 @@ struct SettingsApp: Codable {
     
     var constrInput: Double
 }
+
 
 class Settings {
     

@@ -13,12 +13,13 @@ class AgreementVC: UIViewController {
     
     // MARK: User actions
     
-    // sender'ом является объект типа UISwitch - берём состояние его положения
+    // sender'ом является объект типа UISwitch - берём состояние из него
     // и передаем в наше хранилище
     @IBAction func changeStateAgreement(_ sender: UISwitch) {
+        // сохраняем состояние нажатия переключателя подтверждения ознакомления
         Settings.shared.currentSettings.stateSwitchAgreement = sender.isOn
         
-        // скрываем модальную View - AgreementVC
+        // скрываем модальную AgreementVC
         dismiss(animated: true, completion: nil)
     }
     

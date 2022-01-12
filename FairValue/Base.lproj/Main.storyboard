@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cNJ-rt-wcZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cNJ-rt-wcZ">
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -23,7 +23,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JNG-z1-8uh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1806" y="-9"/>
+            <point key="canvasLocation" x="-1890" y="-9"/>
         </scene>
         <!--Уведомление-->
         <scene sceneID="60o-0t-zjU">
@@ -82,63 +82,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eOB-93-TFQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-890" y="753"/>
-        </scene>
-        <!--Обратная связь-->
-        <scene sceneID="10L-7H-LVn">
-            <objects>
-                <viewController id="9K9-kp-NRH" customClass="FeedBackVC" customModule="FairValue" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ulb-oV-cTg">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Введите тему" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="52E-Y3-JSE">
-                                <rect key="frame" x="20" y="50" width="316" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kPb-aJ-l0l">
-                                <rect key="frame" x="356" y="50" width="50" height="34"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="Rvb-0u-h0v"/>
-                                    <constraint firstAttribute="width" constant="50" id="gmX-6y-DPL"/>
-                                </constraints>
-                                <state key="normal" title="Отправить" image="Mail"/>
-                                <connections>
-                                    <action selector="sendFeedBack:" destination="9K9-kp-NRH" eventType="touchUpInside" id="V1i-Ti-y41"/>
-                                </connections>
-                            </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Опишите ошибку или предложение по улучшению" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lOJ-L8-Wm1">
-                                <rect key="frame" x="20" y="104" width="388" height="260"/>
-                                <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="Dhb-VT-9ew"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="kPb-aJ-l0l" firstAttribute="top" secondItem="52E-Y3-JSE" secondAttribute="top" id="AnC-I3-7g9"/>
-                            <constraint firstItem="lOJ-L8-Wm1" firstAttribute="leading" secondItem="Dhb-VT-9ew" secondAttribute="leading" constant="20" id="BBh-XF-FQU"/>
-                            <constraint firstItem="kPb-aJ-l0l" firstAttribute="top" secondItem="Dhb-VT-9ew" secondAttribute="top" constant="6" id="JHc-N7-Jz0"/>
-                            <constraint firstItem="Dhb-VT-9ew" firstAttribute="bottom" secondItem="lOJ-L8-Wm1" secondAttribute="bottom" constant="528" id="Jcc-Ce-Lim"/>
-                            <constraint firstItem="Dhb-VT-9ew" firstAttribute="trailing" secondItem="kPb-aJ-l0l" secondAttribute="trailing" constant="22" id="PkM-VD-5sr"/>
-                            <constraint firstItem="kPb-aJ-l0l" firstAttribute="leading" secondItem="52E-Y3-JSE" secondAttribute="trailing" constant="20" id="YXO-Pp-MYF"/>
-                            <constraint firstItem="Dhb-VT-9ew" firstAttribute="trailing" secondItem="lOJ-L8-Wm1" secondAttribute="trailing" constant="20" id="bYC-zP-84l"/>
-                            <constraint firstItem="lOJ-L8-Wm1" firstAttribute="top" secondItem="52E-Y3-JSE" secondAttribute="bottom" constant="20" id="g7J-XB-W7l"/>
-                            <constraint firstItem="kPb-aJ-l0l" firstAttribute="bottom" secondItem="52E-Y3-JSE" secondAttribute="bottom" id="hIP-p8-TMH"/>
-                            <constraint firstItem="52E-Y3-JSE" firstAttribute="leading" secondItem="Dhb-VT-9ew" secondAttribute="leading" constant="20" id="z4r-h3-SHP"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Обратная связь" id="zSn-BX-Khl"/>
-                    <connections>
-                        <outlet property="sendFeedBackButton" destination="kPb-aJ-l0l" id="qkf-rE-jRa"/>
-                        <outlet property="textFeedBack" destination="lOJ-L8-Wm1" id="voT-Rs-i04"/>
-                        <outlet property="themeFeedBack" destination="52E-Y3-JSE" id="L3r-38-iZN"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NqF-fF-VNi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="899" y="753"/>
         </scene>
         <!--Расчёт-->
         <scene sceneID="FzS-hC-whc">
@@ -238,7 +181,7 @@
                                                     <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="число &gt; 0.3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9bd-98-Sqs">
-                                                    <rect key="frame" x="20.000000000000004" y="29" width="62.333333333333343" height="20"/>
+                                                    <rect key="frame" x="19.999999999999996" y="29" width="62.666666666666657" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="rKc-OE-Xtm"/>
                                                     </constraints>
@@ -628,11 +571,11 @@
                                 <rect key="frame" x="20" y="31.666666030883789" width="388" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="K7v-74-axw" id="Cel-Tz-cdr">
-                                    <rect key="frame" x="0.0" y="0.0" width="358.33333333333331" height="43.666667938232422"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="359.33333333333331" height="43.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jFd-u5-brk">
-                                            <rect key="frame" x="20" y="0.0" width="330.33333333333331" height="43.666667938232422"/>
+                                            <rect key="frame" x="20" y="0.0" width="331.33333333333331" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                             <nil key="textColor"/>
@@ -684,7 +627,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Mail" width="841" height="595"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

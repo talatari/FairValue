@@ -47,9 +47,9 @@ public enum CalculationError: Error {
 
 
 
-class FairValueCalculator {
+class CalculationDFC {
     
-    public static let shared = FairValueCalculator()
+    public static let shared = CalculationDFC()
     
     private func checkParameters(betaParameter: Double, divParameter: Double) throws {
         let constrInput = Settings.shared.currentSettings.constrInput
@@ -92,7 +92,10 @@ class FairValueCalculator {
         return round(result * 10) / 10
     }
     
-    
+    /*
+     
+    ФУНКЦИЯ ПЕРЕЕХАЛ В ОТДЕЛЬНЫЙ КЛАСС CalculationCA
+     
     // Функция расчёта справедливой стоимости актива по методу Сравнительного Подхода
     func calcComparativeApproach(YearlyProfit: Double,
                                  Сapitalization: Double,
@@ -104,5 +107,5 @@ class FairValueCalculator {
         return round(result * 10) / 10
     }
     
-    
+    */
 }

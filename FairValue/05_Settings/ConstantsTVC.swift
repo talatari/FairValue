@@ -41,7 +41,6 @@ class ConstantsTVC: UITableViewController, UITextFieldDelegate {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
         checkConstants()
     }
     
@@ -51,8 +50,6 @@ class ConstantsTVC: UITableViewController, UITextFieldDelegate {
         if textField.text! == "" {
             textField.text! = "0"
         }
-        print("'" + textField.text! + "'")
-    
     }
     
     
@@ -74,7 +71,7 @@ class ConstantsTVC: UITableViewController, UITextFieldDelegate {
         
         // считаем сколько уже введено символов и проверяем, если действие не стирание
         let leghtCountTF = betaParameter.text!.count
-        if string != "" && leghtCountTF >= 7 {
+        if string != "" && leghtCountTF >= constraintLenghtTextFieldConstants {
             return false
         }
         

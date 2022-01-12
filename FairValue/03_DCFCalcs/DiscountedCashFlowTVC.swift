@@ -31,6 +31,7 @@ class DiscountedCashFlowTVC: UITableViewController, UITextFieldDelegate {
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        
         // скрываем клавиатуру при уходе с Вида с расчётами
         view.endEditing(true)
         
@@ -39,11 +40,12 @@ class DiscountedCashFlowTVC: UITableViewController, UITextFieldDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         // пересчитываем после внесения изменений в константы (настройки)
         calculation()
     }
     
-    // проверяем соостояние валюты и приводит положение в соответствие
+    // проверяем состояние валюты и приводит положение в соответствие
     private func checkTypeCurrency() {
         if Settings.shared.currentSettings.stateTypeCurrency {
             currency.selectedSegmentIndex = 1
@@ -52,13 +54,13 @@ class DiscountedCashFlowTVC: UITableViewController, UITextFieldDelegate {
         }
     }
     
-    // TODO: разобраться почему перестал отрабатывать метод
     // переопределение метода позволяющего скрывать клавиатуру при нажатии
     // по любому элементу на ViewController кроме UITextField
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let _ = touches.first {
             view.endEditing(true)
         }
+        
         super.touchesBegan(touches, with: event)
     }
     
@@ -92,7 +94,7 @@ class DiscountedCashFlowTVC: UITableViewController, UITextFieldDelegate {
         
         // считаем сколько уже введено символов и проверяем, если действие не стирание
         let leghtCountTF = betaParameter.text!.count
-        if string != "" && leghtCountTF >= 7 {
+        if string != "" && leghtCountTF >= constraintLenghtTextFieldDiscountedCF {
             return false
         }
         
@@ -127,8 +129,8 @@ class DiscountedCashFlowTVC: UITableViewController, UITextFieldDelegate {
        if textField.text! == "" {
            textField.text! = "0"
         }
-        calculation()
         
+        calculation()
     }
     
     // как протестировать приватную функцию?
@@ -147,7 +149,7 @@ class DiscountedCashFlowTVC: UITableViewController, UITextFieldDelegate {
             return
         }
         
-        let calculator = FairValueCalculator.shared
+        let calculator = CalculationDFC.shared
         
         do {
             let resultFairValue = try calculator.calcFairValue(betaParameter: betaParameter,
@@ -162,7 +164,7 @@ class DiscountedCashFlowTVC: UITableViewController, UITextFieldDelegate {
             resultLabel.text = error
         }
         catch {
-            // Для чего этот catch?
+            print("Unexpected error: \(error).")
         }
         
     }
